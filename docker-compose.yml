@@ -1,10 +1,10 @@
-version: "3.3"
+version: "3"
 services:
   api-server:
     container_name: api-server
     hostname:  api-server
     build:  ./api
-    image: api-server
+    image: airobotsplatform.azurecr.io/api-server
     ports: 
     - "5000:5000"
     environment: 
@@ -14,10 +14,10 @@ services:
     container_name: web-front
     hostname: web-front
     build: ./front
-    image: web-front
+    image: airobotsplatform.azurecr.io/web-front
     ports: 
       - "3000:3000"
-    depends_on: 
-      - server
+    depends_on:
+      - api-server
     links:
       - api-server
