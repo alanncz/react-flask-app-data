@@ -1,0 +1,346 @@
+@media(min-device-width: 1364px){
+    #corpo{
+        display:block;
+        background-color: #ececec;
+        width:98%;
+        height:100%;
+        padding-top: 0;
+    }
+    #corpo div.folha1{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: fit-content;
+        margin-left: 8%;
+        margin-top: 10%;
+        padding: 37.5px;
+        padding-left: 15%;
+        padding-top: 0;
+        box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
+    
+    }
+    #corpo div.sectionOne{
+        display:block;
+    
+    }
+    #corpo div.logoImg{
+        display:inline-flex;
+        margin-right: 0px;
+       
+        
+    }
+    #corpo div.logoImg2{
+        display:inline-block;
+        margin-left: 0px;
+       
+        
+    }
+    #corpo h2.title{
+        text-align: center;
+        color: #001866;
+        font-family: muli, sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size:30px;
+        letter-spacing: 0.07em;
+    }
+    
+    #corpo img.imgBackground{
+        width: auto;
+        height: 350px;
+    
+    }
+    #corpo div.divBackImg{
+        margin-left: 17%;
+    }
+    #corpo table tr td{
+        font-family: 'Roboto', sans-serif;
+        color:#55595C;
+        font-size:20px;
+        letter-spacing:0.06em;
+        padding-top:10px;
+    }
+    #corpo table tr td.resposta{
+        padding-left: 1000px;
+        text-align:right;
+        color:#55595C;
+    }
+    
+    #corpo table{
+        padding-top: 5%;
+        margin-left: 5%;
+    }
+    
+    #corpo div.folha2{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: 900px;
+        margin-left: 7%;
+        margin-top: 50px;
+        padding: 37.5px;
+        box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
+    
+    }
+    
+    #corpo h3.t2{
+        text-align:center;
+        font-size:xx-large;
+        color: #001866;
+        font-family: muli, sans-serif;
+        letter-spacing:0.09em;
+        padding-top:3%;
+    }
+    #corpo h5.text2{
+        text-align:center;
+        font-family: muli, sans-serif;
+        font-weight: 400;
+        color: 373A3C;
+        font-size:22px
+    
+    }
+    #graph{
+    width:850px;
+    height:700px;
+    margin-left:22%;
+    
+    }
+    #corpo div.space{
+    width:auto;
+    height:100px;
+    }
+    #corpo img.imgfanuc{
+        width: 146.78px;
+        height: 25px;
+
+    }
+    
+}
+
+@media only screen and (min-device-width: 1280px) and (max-device-width: 1366px){
+    #corpo{
+        display:block;
+        background-color: #ececec;
+        width:98%;
+        height:100%;
+    }
+    #corpo div.folha1{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: fit-content;
+        margin-left: 70px;
+        margin-top: 50px;
+        padding: 37.5px;
+        box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
+    
+    }
+    #corpo div.sectionOne{
+        display:inline-flex;
+    
+    }
+    #corpo div.logoImg{
+        display:inline-flex;
+        margin-right: 460px;
+
+    }
+    #corpo div.logoImg2{
+
+        display:inline-flex;
+        margin-left: 350px; 
+    }
+    #corpo h2.title{
+        text-align: center;
+        color: #001866;
+        font-family: muli, sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size:27.8px;
+        letter-spacing: 0.07em;
+    }
+    
+    #corpo img.imgBackground{
+        width: auto;
+        height: 300px;
+        padding: 10px;
+    }
+    #corpo div.divBackImg{
+        margin-left: 90px;
+    }
+    #corpo table tr td{
+        font-family: 'Roboto', sans-serif;
+        color:#55595C;
+        font-size:16px;
+        letter-spacing:0.06em;
+        padding-top:10px;
+    }
+    #corpo table tr td.resposta{
+        padding-left: 750px;
+        text-align:right;
+        color:#55595C;
+    }
+    
+    #corpo table{
+        padding-top: 5%;
+        margin-left: 30px;
+    }
+    
+    #corpo div.folha2{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: 900px;
+        margin-left: 70px;
+        margin-top: 50px;
+        padding: 37.5px;
+        box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
+    
+    }
+    
+    #corpo h3.t2{
+        text-align:center;
+        font-size:x-large;
+        color: #001866;
+        font-family: 'Mulish';
+        font-weight: 800;
+        font-style: bold;
+        letter-spacing:0.09em;
+        padding-top:3%;
+    }
+    #corpo h5.text2{
+        text-align:left;
+        font-family: 'Mulish';
+        font-weight: 500;
+        color: 373A3C;
+        font-size:18.24px
+    
+    }
+    #corpo div.graphDiv{
+    
+    margin-left:9%;
+    margin-top: 2%;
+    }
+    #corpo div.graphDiv2{
+    
+        margin-left:10%;
+        margin-top: 10%;
+        }
+    #corpo div.space{
+    width:auto;
+    height:100px;
+    }
+    
+}
+@media(max-device-width: 1279px){
+    #corpo{
+        display:block;
+        background-color: #ececec;
+        width:98%;
+        height:100%;
+    }
+    #corpo div.folha1{
+        background-color:#fff;
+        display: block;
+        width: 85%;
+        height: fit-content;
+        margin-left: 5%;
+        margin-top: 5%;
+        padding: 37.5px;
+        box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
+    
+    }
+    #corpo div.sectionOne{
+        display:inline-flex;
+    
+    }
+    #corpo div.logoImg{
+        display:inline-flex;
+        margin-right: 350px;
+       
+        
+    }
+    #corpo div.logoImg2{
+        display:inline-flex;
+        margin-left: 350px;
+       
+        
+    }
+    #corpo h2.title{
+        text-align: center;
+        color: #001866;
+        font-family: muli, sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size:20px;
+        letter-spacing: 0.07em;
+    }
+    
+    #corpo img.imgBackground{
+        width: auto;
+        height: 200px;
+    
+    }
+    #corpo div.divBackImg{
+        margin-left: 125px;
+    }
+    #corpo table tr{
+        font-family: 'Roboto', sans-serif;
+        color:#55595C;
+        font-size:17px;
+        letter-spacing:0.06em;
+        padding-top:10px;
+    }
+    #corpo table tr td.resposta{
+        font-family: 'Roboto', sans-serif;
+        padding-left: 400px;
+        text-align:right;
+        color:#55595C;
+        font-size:15px;
+    }
+    
+    #corpo table{
+        padding-top: 5%;
+        margin-left: 5%;
+    }
+    
+    #corpo div.folha2{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: 900px;
+        margin-left: 5%;
+        margin-top: 5%;
+        padding: 37.5px;
+        box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
+    
+    }
+    
+    #corpo h3.t2{
+        text-align:center;
+        font-size:large;
+        color: #001866;
+        font-family: muli, sans-serif;
+        letter-spacing:0.09em;
+        padding-top:3%;
+    }
+    #corpo h5.text2{
+        text-align:left;
+        font-family: muli, sans-serif;
+        font-weight: 400;
+        color: 373A3C;
+        font-size:16px
+    
+    }
+    #graph{
+    width:850px;
+    height:700px;
+    margin-left: 0px;
+    
+    }
+    #corpo div.space{
+    width:auto;
+    height:100px;
+    }
+    
+}
+

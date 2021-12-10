@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+  api-server:
+    container_name: api-server
+    hostname:  api-server
+    build:  ./api
+    image: api-server
+    ports: 
+    - "5000:5000"
+    environment: 
+      FLASK_ENV: development
+
+  web-front:
+    container_name: web-front
+    hostname: web-front
+    build: ./front
+    image: web-front
+    ports: 
+      - "3000:3000"
+    depends_on: 
+      - server
+    links:
+      - api-server

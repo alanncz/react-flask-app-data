@@ -1,0 +1,381 @@
+
+
+/* large devices */
+@media only screen and (min-device-width: 1008px){
+    #body{
+
+        background-color:#eeeeee;
+        width: 1250px;
+        height: 100%;
+        border: 0;
+        margin: 0px;
+        padding-top: 0%;
+        padding-right: 0;
+        
+        display: flex;
+        align-items: center;
+        
+      
+    }
+    #body div.localContainer{
+        width: 80%;
+        height: 100%;
+        margin-top: 9%;
+        margin-left: 12%;
+        padding-top: 5%;
+        margin-right: 0;
+        border-radius: 7px;
+        background-color: white;
+        display: block;
+        box-shadow: 0 5px 30px rgba(182,183,198,255)  , 0 0 40px rgba(243,243,243,255)  inset;
+    }
+
+    #body div h3.title{
+        font-size:xx-large;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        color:#001866;
+        text-align: center;
+        padding-top: 4% ;
+       
+    }
+    #body div.stepsIcons{
+        padding: 5.6%;
+        margin-left: 41%;
+        width: fit-content;
+        height: fit-content;
+        display:inline-flex;
+        
+    }
+    #body i.itemFile{
+        margin:0;
+        padding: 0;
+        height: 0;
+
+    }
+    #body div.fileIcon{
+        width: 50px;
+        height: 50px;
+        margin-left: 5%;
+        margin-top: 5%;
+        margin-bottom: 0;
+        border: 2px;
+        border-style: solid;
+        border-color: #001866;
+        display: block;
+        border-radius: 5px;
+        
+        
+    }
+    #body div.arrowDown{
+        width: 0;
+        height: 0;
+        margin-left: 16px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #001866 ;
+    }
+    #body div.arrowDown2{
+        width: 0;
+        height: 0;
+        margin-left: 16px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 0px solid #f3f3f3 ;
+    }
+    #body div.arrowDown3{
+        width: 0;
+        height: 0;
+        margin-left: 16px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #f3f3f3;
+    }
+    #body div.arrowDown4{
+        width: 0;
+        height: 0;
+        margin-left: 16px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #f3f3f3 ;
+    }
+
+    #body hr.line{
+        width: 200px;
+        height: 0px;
+        background-color: black;
+        margin-top: 6.5%;
+        align-self: center;
+        border-style: solid;
+        color: #999999;
+        
+    }
+    #body div.copyIcon{
+        width: 50px;
+        height: 50px;
+        margin-left: 0;
+        margin-top: 5%;
+        background-color: #f3f3f3;
+        border: 2px;
+        border-style: solid;
+        border-color: #f3f3f3;
+        display: block;
+        border-radius: 5px;
+    }
+    #body div.AIcon{
+        width: 65px;
+        height: 50px;
+        margin-right: 10%;
+        margin-top: 5%;
+        border: 2px;
+        border-style: solid;
+        border-color: #f3f3f3;
+        display:block;
+        border-radius: 5px;
+    }
+   #body p.Aicon{
+    font-family: 'Mulish';
+    font-style: normal;
+       font-size: xx-large;
+       text-align: center;
+       margin: 0;
+       padding-bottom: 6px;
+       color: #999999;
+       background-color: #f3f3f3;
+       
+   }
+   #body div.AarrowDown{
+    width: 0;
+    height: 0;
+    margin-left: 15px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #f3f3f3 ;
+}
+#body span.spanText{
+    word-break:keep-all;
+    height: 10px;
+    
+    
+}
+#body div h3.title2{
+    margin-bottom: 2%;
+    font-size: x-large;
+    color: #001866;
+    text-align: center;
+    font-family: 'Mulish';
+    
+}
+#body h4.textUpload{
+    text-align: center;
+    color: #373A3C;
+    font-size:20px;
+    margin:3%;
+    font-family: 'Mulish', sans-serif;
+}
+#body strong.strongLog{
+    color: #967ADC;
+    font-size:20px;
+    font-family: 'Open Sans', sans-serif;
+
+}
+#body button.uploadIcon{
+    
+    width: 100px;
+    height: 100px;
+    background-color: #967ADC;
+    margin-left: 4%;
+    border-style: none;
+    border-radius: 50%;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    box-shadow: 2px 5px 10px 2px #c0a7ff;
+    transition:all 0.3s ease 0s;
+    
+}
+
+#body h4.textDownUpload{
+    color: #967ADC;
+    font-size: larger;
+    text-align: center;
+    margin-top: 20%;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+}
+#body div.space{
+    height: 180px;
+}
+#body div.buttonNextPrea{
+    display: inline;
+    padding-left: 80%;
+}
+#body button.buttonGenerate{
+    background-color: #001866;
+    width: 100px;
+    height: 44px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin-left: 44.5%;
+    margin-top: 5%;
+    cursor: pointer;
+    font-size: medium;
+    transition:all 0.3s ease 0s;
+}
+#body button.buttonGenerate:hover{
+    background-color: #fcfcfc;
+    width: 100px;
+    height: 44px;
+    border: 1px;
+    color: #001866;
+    border-radius: 5px;
+    border-style:solid;
+    border-color: #001866;
+    margin-left: 44.5%;
+    margin-top: 5%;
+    cursor: pointer;
+    font-size: medium;
+}
+#body button.buttonNext{
+    background-color: #001866;
+    width: 59px;
+    height: 44px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: medium;
+}
+#body button.buttonPre{
+    background-color: #fcfcfc;
+    width: 88.25px;
+    height: 44px;
+    border: 1px solid;
+    color: #999999;
+    border-radius: 2px;
+    margin-left: 10px;
+    cursor:pointer;
+    font-size: medium;
+    
+
+}
+#body div.uploadSpace{
+    width: fit-content;
+    height: fit-content;
+    margin-left: 44%;
+}
+#body input {
+    position: absolute;
+    width: 105px;
+    height: 100px;
+    margin-bottom: 10px;
+    margin-left:10px ;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+    
+  }
+  .bnt-ok{
+    background-color: #2778C4;
+    width: 100px;
+    height: 44px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin-left: 44.5%;
+    margin-top: 5%;
+    cursor: pointer;
+    font-size: medium;
+    transition:all 0.3s ease 0s;
+  }
+  .bnt-ok:hover{
+    background-color: #fcfcfc;
+    width: 100px;
+    height: 44px;
+    border: 1px;
+    color: #2778C4;
+    border-radius: 5px;
+    border-style:solid;
+    border-color: #001866;
+    margin-left: 44.5%;
+    margin-top: 5%;
+    cursor: pointer;
+    font-size: medium;
+  }
+  .lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin-top:40px;
+    margin-left: 460px;
+    margin-bottom: 50px;
+    border-radius: 50%;
+    border: 6px solid #001866;
+    border-color: #001866 transparent #001866 transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+ 
+  
+  @keyframes is-rotating {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+    
+    
+}
+/* medium devices */
+@media only screen and (max-device-width: 1007px){
+    #body{
+        background-color:#eeeeee;
+        width: 100%;
+        height: 30px;
+        border-top: 0;
+        margin-top: 0;
+        padding-top: 0;
+        border: 0;
+        margin: 0;
+  
+
+    
+    }
+}
+/* small devices */
+@media only screen and (max-device-width: 640px){
+
+    #body{
+        background-color:#eeeeee;
+        width: 100%;
+        height: 65px;
+        border-top: 0;
+        margin-top: 0;
+        padding-top: 0;
+        border: 0;
+        margin: 0;
+        box-shadow: 0 5px 30px #a78ee7  , 0 0 40px #d5c6fc  inset;
+    
+    }
+    
+    
+    
+}
