@@ -3,14 +3,13 @@ import '../relatorio/styles.css'
 import logoAi from '../../imagens/logoAi.png'
 import logo2 from '../../imagens/pngegg.png'
 import background_image from '../../imagens/background-TRANSP.png'
-
-
 import Plot from 'react-plotly.js'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 
 function Relatorio() {
+
     const [valuePieChart, setValuePieChart] = useState([])
     const [labelsPieChart, setlabelsPieChart] = useState([])
     const [layoutPieChart, setLayoutPieChart] = useState([])
@@ -29,8 +28,8 @@ function Relatorio() {
         console.log(response.data)
         setValuePieChart(response.data.files[0].data[0].values)
         setlabelsPieChart(response.data.files[0].data[0].labels)
-        setLayoutPieChart(response.data.files[0].layout.title)
 
+        setLayoutPieChart(response.data.files[0].layout.title)
         setValuePieChart2(response.data.files[2].data[0].values)
         setlabelsPieChart2(response.data.files[2].data[0].labels)
         setLayoutPieChart2(response.data.files[2].layout.title)
@@ -42,17 +41,7 @@ function Relatorio() {
     }).catch(function (error) {
         console.log(error);
     })
-    console.log(valueTable)
-    console.log(layoutTable)
     
-        // fetch('127.0.0.1:5000/relatorio').then(response => {
-        //     console.log(response.json)
-        //   response.json().then(data => {
-        //     setData(data) 
-        //   })
-        // }).catch(erro => {
-        //   console.error(erro)
-        // })
       }, [])
    
 
@@ -64,18 +53,18 @@ function Relatorio() {
     <div class="folha1">
         <div class="sectionOne" style={{display:'inline-block'}}>
                 <div class="logoImg">
-                <img src={logoAi}/>
+                <img alt="logo Ai Robots" src={logoAi}/>
             </div>
             
             <div class="logoImg2" >
-                <img class="imgfanuc" src={logo2}/>
+                <img alt="logo fanuc" class="imgfanuc" src={logo2}/>
             </div>
         </div>
         <div>
             <h2 class="title">HEALTH CHECK REPORT</h2>
          </div>
          <div class="divBackImg">
-            <img class="imgBackground" src={background_image}/>
+            <img alt="background image" class="imgBackground" src={background_image}/>
          </div>
     
         <div class="sectionTwo">
