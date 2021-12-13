@@ -14,17 +14,17 @@ function Relatorio() {
     const [valuePieChart, setValuePieChart] = useState([])
     const [labelsPieChart, setlabelsPieChart] = useState([])
     const [layoutPieChart, setLayoutPieChart] = useState([])
+
     const [layoutPieChart2, setLayoutPieChart2] = useState([])
-    const [layoutTable, setLayoutTable] = useState([])
-    
     const [valuePieChart2, setValuePieChart2] = useState([])
     const [labelsPieChart2, setlabelsPieChart2] = useState([])
+
     const [valueTable, setValueTable] = useState([])
-    
+    const [layoutTable, setLayoutTable] = useState([])
+
     useEffect(() => {
 
-	axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
-    axios.get("http://localhost:5000/graficos-relatorio").then(response => {
+    axios.get("/graficos-relatorio").then(response => {
         
         console.log(response.data)
         setValuePieChart(response.data.files[0].data[0].values)
@@ -39,6 +39,8 @@ function Relatorio() {
         
         
         // console.log(valueTable[0])
+    }).catch(function (error) {
+        console.log(error);
     })
     console.log(valueTable)
     console.log(layoutTable)
@@ -66,7 +68,7 @@ function Relatorio() {
             </div>
             
             <div class="logoImg2" >
-                <img class="imgfanuc" style={{}} src={logo2}/>
+                <img class="imgfanuc" src={logo2}/>
             </div>
         </div>
         <div>
@@ -204,8 +206,8 @@ function Relatorio() {
 </div>
 
 <div class="folha2">
-
-    <Plot
+<div class="tabela">
+<Plot
             data={[
               {type: "table",
                 header:{values:[layoutTable[0],layoutTable[1],layoutTable[2],layoutTable[3]],
@@ -217,13 +219,16 @@ function Relatorio() {
                     valueTable[0],valueTable[1],valueTable[2],valueTable[3]
                 ],align: "center",
                 line: {color: "black", width: 1},
-                font: {family: "Arial", size: 11, color: ["black"]}
+                font: {family: "Arial", size: 11, color: ["black"]}, 
+                fill: {color:['rgb(242, 242, 242)', 'white','white','white' ]}
                 }
                         
         }
             ]}
             layout={{width:1070, height:910}}
             />
+</div>
+   
     
 </div>
 <div class="space"></div>

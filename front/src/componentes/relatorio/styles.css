@@ -1,8 +1,8 @@
-@media(min-device-width: 1364px){
+@media(min-device-width: 1400px){
     #corpo{
         display:block;
         background-color: #ececec;
-        width:98%;
+        width:90%;
         height:100%;
         padding-top: 0;
     }
@@ -11,11 +11,11 @@
         display: block;
         width: 85%;
         height: fit-content;
-        margin-left: 8%;
-        margin-top: 10%;
+        margin-left: 12%;
+        margin-top: 5%;
         padding: 37.5px;
-        padding-left: 15%;
-        padding-top: 0;
+        
+        
         box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
     
     }
@@ -25,7 +25,7 @@
     }
     #corpo div.logoImg{
         display:inline-flex;
-        margin-right: 0px;
+        margin-right: 1250px;
        
         
     }
@@ -61,7 +61,7 @@
         padding-top:10px;
     }
     #corpo table tr td.resposta{
-        padding-left: 1000px;
+        padding-left: 1050px;
         text-align:right;
         color:#55595C;
     }
@@ -76,7 +76,7 @@
         display: block;
         width: 85%;
         height: 900px;
-        margin-left: 7%;
+        margin-left: 12%;
         margin-top: 50px;
         padding: 37.5px;
         box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
@@ -92,11 +92,11 @@
         padding-top:3%;
     }
     #corpo h5.text2{
-        text-align:center;
-        font-family: muli, sans-serif;
-        font-weight: 400;
+        text-align:left;
+        font-family: 'Mulish';
+        font-weight: 500;
         color: 373A3C;
-        font-size:22px
+        font-size:25px
     
     }
     #graph{
@@ -114,10 +114,26 @@
         height: 25px;
 
     }
+    #corpo div.graphDiv{
+    
+        margin-left:19%;
+        margin-top: 5%;
+        }
+        #corpo div.graphDiv2{
+        
+            margin-top:10%;
+            margin-left: 18%;
+            }
+    .tabela{
+        width: 80%;
+        height: fit-content;
+        margin-left: 12%;
+    }
+    
     
 }
 
-@media only screen and (min-device-width: 1280px) and (max-device-width: 1366px){
+@media only screen and (max-device-width: 1399px){
     #corpo{
         display:block;
         background-color: #ececec;
@@ -144,8 +160,12 @@
         margin-right: 460px;
 
     }
+    .imgfanuc{
+        width: 150px;
+        height: auto;
+    }
     #corpo div.logoImg2{
-
+        
         display:inline-flex;
         margin-left: 350px; 
     }
