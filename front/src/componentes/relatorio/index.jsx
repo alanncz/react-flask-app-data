@@ -23,7 +23,7 @@ function Relatorio() {
 
     useEffect(() => {
 
-    axios.get("/graficos-relatorio").then(response => {
+    axios.get("http://localhost:5000/graficos-relatorio").then(response => {
         
         console.log(response.data)
         setValuePieChart(response.data.files[0].data[0].values)
@@ -64,7 +64,7 @@ function Relatorio() {
             <h2 class="title">HEALTH CHECK REPORT</h2>
          </div>
          <div class="divBackImg">
-            <img alt="background image" class="imgBackground" src={background_image}/>
+            <img alt="background" class="imgBackground" src={background_image}/>
          </div>
     
         <div class="sectionTwo">

@@ -37,37 +37,42 @@ def relatorio():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    # try:
-        print("POST recebido")
-        file = request.files['inputFile']
-        filename = secure_filename(file.filename)
-        file_type = os.path.splitext(filename)[1]
-        print(file_type)
-        if(file_type not in app.config['ALLOWED_EXTENSIONS']):
-            print("invalid type 400")
-            return "invalid type", 400
-        else:
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            print("arquivo salvo")
-            # upload_mongo.fazer_upload(file.filename)
-            gerador_graficos.gerar_graficos(file.filename, file_type)
+     
+    print("POST recebido")
+    file = request.files['inputFile']
+    filename = secure_filename(file.filename)
+    file_type = os.path.splitext(filename)[1]
+    print(file_type)
+    if(file_type not in app.config['ALLOWED_EXTENSIONS']):
+        print("invalid type 400")
+        return "invalid type", 400
+    else:
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        print("arquivo salvo")
+        # upload_mongo.fazer_upload(file.filename)
+        gerador_graficos.gerar_graficos(file.filename, file_type)
 
-            generate_table.gerar_tabela(file.filename, "error_manual.xlsx", file_type)
-            print("tabela gerada")
-            print("Success")
-            return "O gráfico foi gerado"
-    # except:
-        # return "erro na api"
+        generate_table.gerar_tabela(file.filename, "error_manual.xlsx", file_type)
+        print("tabela gerada")
+        print("Success")
+        return "O gráfico foi gerado"
+     
 
 @app.route('/upload-perifericos', methods=['POST'])
 def upload_perifericos():
-    print("POST periferico recebido")
     file = request.files['inputFilePeriferico']
     filename = secure_filename(file.filename)
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    # upload_mongo.fazer_upload_perifericos(file.filename)
-    return "Arquivo perifericos salvo"
-
+    file_type = os.path.splitext(filename)[1]
+    if(file_type not in app.config['ALLOWED_EXTENSIONS']):
+        print("invalid type 400")
+        return "invalid type", 400
+    else:
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        # upload_mongo.fazer_upload_perifericos(file.filename)
+        return "Arquivo perifericos salvo"
+    
+    
+    
 @app.route('/get_files', methods=['GET'])
 def get_files():
     files = db['fs.files']

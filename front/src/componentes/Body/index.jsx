@@ -16,46 +16,50 @@ class Body extends Component {
 
     "Access-Control-Allow-Origin": "*"
 }}
-  
 
-  state = {
-    // Initially, no file is selected
-    selectedFile: null
+constructor () {
+  super();
+  this.state = {
+    selectedFile: null,
+    file2: null
   };
+  this.handleChange = this.handleChange.bind(this);
+}
 
-  state2 = {
-    // Initially, no file is selected
-    selectedFile: null
-  };
+  /* state = {selectedFile:null,
+             file2:null
+            } */
+
+ 
 
   // On file select (from the pop up)
-  onFileChange = event => {
-    console.log(event.target.files[0])
+  handleChange(event, indice) {
+    console.log("mudou")
     // Update the state
-    this.setState({ selectedFile: event.target.files[0]});
-    console.log("onFilesCha1")
+    this.setState({[indice] : event.target.files[0]});
+    console.log(this.state.selectedFile)
     
   };
-  onFileChange2 = event => {
-    console.log(event.target.files[0])
+  /* onFileChange2 = event => {
+    console.log("mudou")
     // Update the state
-    this.setState({ selectedFile: event.target.files[0]});
-    console.log("onFilesCha")
+    this.setState({selectedFile2 : event.target.files[0]});
+    console.log(this.state.file2)
     
     
 
-  };
+  };  */
 
   // On file upload (click the upload button)
   onFileUpload = () => {
     console.log(this.state.selectedFile)
-    console.log(this.state2.selectedFile)
+    console.log(this.state.file2)
     console.log("chamou o onFileUpload")
     document.getElementById("div-btn-generate").style.display = "none";
     document.getElementById("upload").style.display = "none";
     document.getElementById("loading").style.display = "block"
-
-    if(this.state.selectedFile&&this.state2.selectedFile){
+    
+    if(this.state.selectedFile&&this.state.file2){
       console.log("state e state2 true")
         // Create an object of formDatas
         const formData = new FormData();
@@ -70,17 +74,17 @@ class Body extends Component {
         
         formData2.append(
           "inputFilePeriferico",
-          this.state2.selectedFile,
-          this.state2.selectedFile.name
+          this.state.file2,
+          this.state.file2.name
         );
 
         // Details of the uploaded file
         console.log(this.state.selectedFile);
-        console.log(this.state2.selectedFile);
+        console.log(this.state.file2);
 
         // Request made to the backend api
         // Send formData object
-        axios.post("http://192.168.0.105:5000/upload", formData, this.axiosConfig).then(function (response) {
+        axios.post("http://localhost:5000/upload", formData, this.axiosConfig).then(function (response) {
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
           console.log(response)
@@ -91,9 +95,9 @@ class Body extends Component {
           document.getElementById("upload").style.display = "flex";
 
         });
-        axios.post("http://192.168.0.105:5000/upload-perifericos", formData2,this.axiosConfig).then(function (response) {
-          document.getElementById("loading").style.display = "none"
-          document.getElementById("finish").style.display = "block"
+
+        axios.post("http://localhost:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
+          
           console.log(response)
           
         }).catch(function (error) {
@@ -105,7 +109,7 @@ class Body extends Component {
         });
 
     }
-      if(this.state.selectedFile&&!this.state2.selectedFile){
+      if(this.state.selectedFile&&!this.state.file2){
         console.log("state true")
         // Create an object of formDatas
         const formData = new FormData();
@@ -125,7 +129,7 @@ class Body extends Component {
 
         // Request made to the backend api
         // Send formData object
-        axios.post("http://192.168.0.105:5000/upload", formData, this.axiosConfig ).then(function (response) {
+        axios.post("http://localhost:5000/upload", formData, this.axiosConfig ).then(function (response) {
           
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
@@ -143,7 +147,7 @@ class Body extends Component {
         
 
       }
-      if(!this.state.selectedFile&&this.state2.selectedFile){
+      if(!this.state.selectedFile&&this.state.file2){
         console.log("state2 true")
         // Create an object of formDatas
        
@@ -153,19 +157,19 @@ class Body extends Component {
         
         
         formData2.append(
-          "inputFile",
-          this.state2.selectedFile,
-          this.state2.selectedFile.name
+          "inputFilePeriferico",
+          this.state.file2,
+          this.state.file2.name
         );
 
         // Details of the uploaded file
         
-        console.log(this.state2.selectedFile);
+        console.log(this.state.file2);
 
         // Request made to the backend api
         // Send formData object
         
-        axios.post("http://192.168.0.105:5000/upload-perifericos", formData2,this.axiosConfig).then(function (response) {
+        axios.post("http://localhost:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
           console.log(response)
@@ -173,7 +177,7 @@ class Body extends Component {
         }).catch(function (error) {
           console.log(error.toJSON());
           document.getElementById("div-btn-generate").style.display = "flex";
-          document.getElementById("upload").style.display = "block";
+          document.getElementById("upload").style.display = "flex";
           document.getElementById("loading").style.display = "none"
           
           
@@ -228,7 +232,7 @@ class Body extends Component {
             </div>
            <div id="upload" className="upload">
            <div id="uploadSpace" className="uploadSpace">
-              <input id="fileUp" type="file" name="upload_file" onChange={this.onFileChange} />
+              <input id="fileUp" type="file" name="upload_file" onChange={(event)=>this.handleChange(event, "selectedFile")} />
               <label htmlFor="fileUp">
                 <button className="uploadIcon">
                   <FileIconsTi.TiUpload color="white" size={70} />
@@ -239,7 +243,7 @@ class Body extends Component {
             </div>
 
             <div id="uploadSpace" className="uploadSpace">
-              <input id="fileUp2" type="file" name="upload_file_periferico" onChange={this.onFileChange2} />
+              <input id="fileUp2" type="file" name="upload_file_periferico" onChange={(event)=>this.handleChange(event, "file2")} />
               <label htmlFor="fileUp2">
                 <button className="uploadIcon">
                   <FileIconsTi.TiUpload color="white" size={70} />
@@ -251,7 +255,7 @@ class Body extends Component {
             
 
             <div id="div-btn-generate">
-              <button id="button-Generate" className="buttonGenerate" id='button' disabled={this.state.selectedFile==null&&this.state2.selectedFile==null} onClick={this.onFileUpload}>Generate</button>
+              <button id='button' className="buttonGenerate"  disabled={this.state[0]==null&&this.state[1]} onClick={this.onFileUpload}>Generate</button>
             </div>
 
             <div id="finish" className="finish" style={{ display: "none" }}>

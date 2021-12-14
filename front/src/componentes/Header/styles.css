@@ -16,7 +16,7 @@
 
     #header img.logoAiRobots{
         width: 55px;
-        margin-left: 40.3%;
+        margin-left: 55%;
         margin-top: 0.4%;
         
         
@@ -25,7 +25,7 @@
     
 }
 /* medium devices */
-@media only screen and (max-device-width: 1007px){
+@media only screen and (max-device-width: 1007px) and (min-device-width:641px){
     #header{
         background-image: linear-gradient(to right, #0D1430, #001866 30%);
         width: 100%;
@@ -37,7 +37,7 @@
     }
     #header img.logoAiRobots{
         width: 20px;
-        margin-left: 30%;
+        margin-left: 70%;
         margin-top: 2%;
         
         
