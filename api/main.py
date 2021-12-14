@@ -1,4 +1,4 @@
-from gerador_graficos import gerar_graficos
+""" from gerador_graficos import gerar_graficos
 from pymongo import MongoClient
 import pandas as pd
 import os
@@ -8,7 +8,7 @@ import http.server
 import socketserver
 import webbrowser
 import gridfs
-
+ """
 #______________________________________arquivo usado para debugar______________________________________________
 
 #____________________________________________Download________________________________________________________

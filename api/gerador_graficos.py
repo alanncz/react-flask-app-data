@@ -63,7 +63,10 @@ def gerar_graficos(file, file_type):
     dados_x_sem_erro = []
     for x in dados_x:
         frase = x
-        remover_palavras  = ["MOTN-056", "MOTN-170", "INTP-685", "SRVO-171","SYST-034", "SRVO-004",
+        remover_palavras  = ["4)","12)","1)","19)","(M_MAINT,","17)","(UPWARD,","6)","MACR-016",
+        "INTP-105","SYST-033","SYST-032","MACR-016","SRVO-021","MACR-016","MACR-016","SRVO-053",
+        "SRVO-050","ZDT","SRVO-003","TP","SYST-045","G:1","TRAK-005","MOTN-056", "MOTN-170", "INTP-685", 
+        "SRVO-171","SYST-034", "SRVO-004",
         "SRVO-199", "SRVO-007","SRVO-012","INTP-127","SRVO-037", "PROF-017","PROF-001","SRVO-300",
         "HOST-108","SP -012","HOST-028","FILE-069","FILE-071","FILE-077","FILE-078","SRVO-105"]
         lista_frase = frase.split()
@@ -73,6 +76,7 @@ def gerar_graficos(file, file_type):
 
         dados_x_sem_erro.append(retorno)
     i = 0
+
     for linha in dados_x_sem_erro:
         
         if(linha == "SP -012 $0038000C-Dictionary not found"):

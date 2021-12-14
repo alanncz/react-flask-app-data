@@ -10,9 +10,29 @@ import axios from 'axios'
 
 function Relatorio() {
 
+    const [figura330, setFigura330] = useState([])
+    const [figura205, setFigura205] = useState([])
+    const [figura220, setFigura220] = useState([])
+    const [figura240, setFigura240] = useState([])
+    const [figura250, setFigura250] = useState([])
+    const [figura255, setFigura255] = useState([])
+    const [figura390, setFigura390] = useState([])
+    const [figura400, setFigura400] = useState([])
+    const [figura420, setFigura420] = useState([])
+    const [figura440, setFigura440] = useState([])
+    const [figura450, setFigura450] = useState([])
+    const [figura470, setFigura470] = useState([])
+    const [figura480, setFigura480] = useState([])
+    const [figura550, setFigura550] = useState([])
+    const [figura560, setFigura560] = useState([])
+    const [figura570, setFigura570] = useState([])
+    const [figura580, setFigura580] = useState([])
+
+
     const [valuePieChart, setValuePieChart] = useState([])
     const [labelsPieChart, setlabelsPieChart] = useState([])
     const [layoutPieChart, setLayoutPieChart] = useState([])
+
 
     const [layoutPieChart2, setLayoutPieChart2] = useState([])
     const [valuePieChart2, setValuePieChart2] = useState([])
@@ -24,27 +44,32 @@ function Relatorio() {
     useEffect(() => {
 
     axios.get("http://localhost:5000/graficos-relatorio").then(response => {
-        
         console.log(response.data)
         setValuePieChart(response.data.files[0].data[0].values)
         setlabelsPieChart(response.data.files[0].data[0].labels)
-
         setLayoutPieChart(response.data.files[0].layout.title)
+
         setValuePieChart2(response.data.files[2].data[0].values)
         setlabelsPieChart2(response.data.files[2].data[0].labels)
         setLayoutPieChart2(response.data.files[2].layout.title)
+
         setValueTable(response.data.files[1].data[0].cells.values)
         setLayoutTable(response.data.files[1].data[0].header.values)
         
+       if(valuePieChart == null){
+        document.getElementById("secound-sheet").style.display = 'none'
+        document.getElementById("third-sheet").style.display = 'none'
+        document.getElementById("fourth-sheet").style.display = 'none'
+        document.getElementById("no-graph-sheet").style.display = 'block'
+       }
         
-        // console.log(valueTable[0])
+        
     }).catch(function (error) {
         console.log(error);
     })
     
       }, [])
    
-
     return(
         
         <div>
@@ -155,7 +180,7 @@ function Relatorio() {
 
     </div>
 
-<div class="folha2">
+<div id="secound-sheet" class="folha2">
     <h3 class="t2">Robot Program Analysis</h3>
     <h5 class="text2">Here you will find the most common errors found in your robot program. The table explains the cause of each error and suggests a solution to fix it.</h5>
     <div class="graphDiv">
@@ -178,7 +203,7 @@ function Relatorio() {
      
 </div>
 
-<div class="folha2">
+<div id="third-sheet"class="folha2">
     <div class="graphDiv2">
     <Plot
             data={[
@@ -194,31 +219,36 @@ function Relatorio() {
 
 </div>
 
-<div class="folha2">
-<div class="tabela">
-<Plot
-            data={[
-              {type: "table",
-                header:{values:[layoutTable[0],layoutTable[1],layoutTable[2],layoutTable[3]],
-                    align: "center",
-                    line: {width: 1, color: 'black'},
-                    fill: {color: 'rgb(13, 20, 48)'},
-                    font: {family: "Arial", size: 12, color: "white"}},
-                cells: { values:[
-                    valueTable[0],valueTable[1],valueTable[2],valueTable[3]
-                ],align: "center",
-                line: {color: "black", width: 1},
-                font: {family: "Arial", size: 11, color: ["black"]}, 
-                fill: {color:['rgb(242, 242, 242)', 'white','white','white' ]}
-                }
-                        
-        }
-            ]}
-            layout={{width:1070, height:910}}
-            />
+<div id="fourth-sheet" class="folha2">
+    <div class="tabela">
+    <Plot
+                data={[
+                {type: "table",
+                    header:{values:[layoutTable[0],layoutTable[1],layoutTable[2],layoutTable[3]],
+                        align: "center",
+                        line: {width: 1, color: 'black'},
+                        fill: {color: 'rgb(13, 20, 48)'},
+                        font: {family: "Arial", size: 12, color: "white"}},
+                    cells: { values:[
+                        valueTable[0],valueTable[1],valueTable[2],valueTable[3]
+                    ],align: "center",
+                    line: {color: "black", width: 1},
+                    font: {family: "Arial", size: 11, color: ["black"]}, 
+                    fill: {color:['rgb(242, 242, 242)', 'white','white','white' ]}
+                    }
+                            
+            }
+                ]}
+                layout={{width:1070, height:910}}
+                />
 </div>
    
     
+</div>
+<div id="no-graph-sheet" class="folha2" style={{display:'none'}}>
+    <div class="space"></div>
+    <h5 class="text2">The report was not generated. Please go back to the main page and try again.</h5>
+    <div class="space"></div>
 </div>
 <div class="space"></div>
 </body>

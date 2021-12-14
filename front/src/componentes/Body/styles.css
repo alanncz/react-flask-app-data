@@ -7,7 +7,7 @@
         width: 1300px;
         height: 100%;
         border: 0;
-        margin-left: 16%;
+        margin-left: 8%;
         padding-top: 2%;
         padding-right: 0;
         
@@ -20,7 +20,8 @@
         width: 80%;
         height: 100%;
         margin-top: 9%;
-        margin-left: 10%;
+        margin-left: 25%;
+        margin-right: 18.5%;
         padding-top: 0%;
         margin-right: 0;
         border-radius: 7px;
@@ -291,7 +292,7 @@
     
   }
   .bnt-ok{
-    background-color: #2778C4;
+    background-color: #001866;
     width: 100px;
     height: 44px;
     border: none;
@@ -328,7 +329,7 @@
     width: 64px;
     height: 64px;
     margin-top:40px;
-    margin-left: 460px;
+    margin-left: 470px;
     margin-bottom: 50px;
     border-radius: 50%;
     border: 6px solid #001866;
@@ -355,6 +356,36 @@
     
     
 }
+@media (min-device-width: 1400px) and (max-device-width: 1600px){
+    #body{
+
+        background-color:#eeeeee;
+        width: 1300px;
+        height: 100%;
+        border: 0;
+        margin-left: 8%;
+        padding-top: 2%;
+        padding-right: 0;
+        
+        display: flex;
+        align-items: center;
+        
+      
+    }
+    #body div.localContainer{
+        width: 80%;
+        height: 100%;
+        margin-top: 9%;
+        margin-left: 6%;
+        margin-right: 6%;
+        padding-top: 0%;
+        margin-right: 0;
+        border-radius: 7px;
+        background-color: white;
+        display: block;
+        box-shadow: 0 5px 30px rgba(182,183,198,255)  , 0 0 40px rgba(243,243,243,255)  inset;
+    }
+}
 /* medium devices */
 @media only screen and (max-device-width: 1399px){
     
@@ -378,6 +409,7 @@
         height: 100%;
         margin-top: 9%;
         margin-left: 17%;
+        margin-right: 17%;
         padding-top: 5%;
         margin-right: 0;
         border-radius: 7px;
@@ -642,7 +674,7 @@
     
   }
   .bnt-ok{
-    background-color: #2778C4;
+    background-color: #001866;
     width: 100px;
     height: 44px;
     border: none;
@@ -731,6 +763,7 @@
         height: 100%;
         margin-top: 9%;
         margin-left: 17%;
+        margin-right: 17%;
         padding-top: 5%;
         margin-right: 0;
         border-radius: 7px;
@@ -995,7 +1028,7 @@
     
   }
   .bnt-ok{
-    background-color: #2778C4;
+    background-color: #001866;
     width: 100px;
     height: 44px;
     border: none;

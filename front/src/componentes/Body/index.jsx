@@ -6,11 +6,14 @@ import '../../componentes/Body/styles.css'
 import Header from '../Header'
 // import { render } from '@testing-library/react';
 // import Relatorio from '../relatorio';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 class Body extends Component {
 
+ 
 
   axiosConfig = {headers: {
 
@@ -52,6 +55,17 @@ constructor () {
 
   // On file upload (click the upload button)
   onFileUpload = () => {
+
+      toast.info('Please, active the website pop-ups and redirection!', {
+      position: "top-left",
+      autoClose: 9000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
     console.log(this.state.selectedFile)
     console.log(this.state.file2)
     console.log("chamou o onFileUpload")
@@ -201,10 +215,24 @@ constructor () {
 
   render() {
 
+
     return (
       <div style={{ display: 'block' }}>
         <Header />
         <div id="body">
+        <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+{/* Same as */}
+<ToastContainer />
 
           <div className="localContainer">
             <div>

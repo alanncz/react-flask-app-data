@@ -1,10 +1,12 @@
 
+from grafico_periferico import gerar_graficos_perifericos
 from flask import json, request, Flask, jsonify
 from flask.templating import render_template
 import upload_mongo
 import os
 from werkzeug.utils import secure_filename
 import gerador_graficos
+
 from pymongo import MongoClient 
 import generate_table
 from flask_cors import CORS
@@ -28,11 +30,39 @@ def relatorio():
         allError = open('allErrors.json')
         tabela = open('tabela.json')
         mostCommom = open('mostCommonErrors.json')
-        return jsonify({'files' : [json.load(allError),
-            json.load(tabela),
-            json.load(mostCommom)]})
+        try:
+            
+            figura330 = open("fig_330.json")
+            figura205 = open("fig_205.json")
+            figura220 = open("fig_220.json")
+            figura240 = open("fig_240.json")
+            figura250 = open("fig_250.json")
+            figura255 = open("fig_255.json")
+            figura390 = open("fig_390.json")
+            figura400 = open("fig_400.json")
+            figura420 = open("fig_420.json")
+            figura440 = open("fig_440.json")
+            figura450 = open("fig_450.json")
+            figura470 = open("fig_470.json")
+            figura480 = open("fig_480.json")
+            figura550 = open("fig_550.json")
+            figura560 = open("fig_560.json")
+            figura570 = open("fig_570.json")
+            figura580 = open("fig_580.json")
+            print("retornou todos os graficos")
+
+            return jsonify({'files' : [json.load(allError), json.load(tabela), json.load(mostCommom),
+            json.load(figura330), json.load(figura205), json.load(figura220), json.load(figura240),
+            json.load(figura250), json.load(figura255), json.load(figura390), json.load(figura400),
+            json.load(figura420), json.load(figura440), json.load(figura450), json.load(figura470),
+            json.load(figura480), json.load(figura550), json.load(figura560), json.load(figura570),
+            json.load(figura580)]})
+        except: 
+            print("nao retornou os perifericos")
+            return jsonify({'files' : [json.load(allError), json.load(tabela), json.load(mostCommom)]})
     except:
-        return "grafico ainda não foi gerado"
+        print("erro")
+        return "There is no graphic"
 
 
 @app.route('/upload', methods=['POST'])
@@ -68,8 +98,9 @@ def upload_perifericos():
         return "invalid type", 400
     else:
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        gerar_graficos_perifericos(filename)
         # upload_mongo.fazer_upload_perifericos(file.filename)
-        return "Arquivo perifericos salvo"
+        return "Graficos perifericos gerados"
     
     
     
