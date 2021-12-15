@@ -98,11 +98,8 @@ constructor () {
 
         // Request made to the backend api
         // Send formData object
-        axios.post("http://localhost:5000/upload", formData, this.axiosConfig).then(function (response) {
-          document.getElementById("loading").style.display = "none"
-          document.getElementById("finish").style.display = "block"
+        axios.post("https://api-ambev.azurewebsites.net/upload", formData, this.axiosConfig).then(function (response) {
           console.log(response)
-          window.open('/relatorio')
         }).catch(function (error) {
           console.log(error.toJSON());
           document.getElementById("div-btn-generate").style.display = "flex";
@@ -110,9 +107,11 @@ constructor () {
 
         });
 
-        axios.post("http://localhost:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
-          
-          console.log(response)
+        axios.post("https://api-ambev.azurewebsites.net/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
+          document.getElementById("loading").style.display = "none"
+          document.getElementById("finish").style.display = "block"
+          console.log(response.data)
+          window.open('/relatorio')
           
         }).catch(function (error) {
           console.log(error.toJSON());
@@ -143,7 +142,7 @@ constructor () {
 
         // Request made to the backend api
         // Send formData object
-        axios.post("http://localhost:5000/upload", formData, this.axiosConfig ).then(function (response) {
+        axios.post("https://api-ambev.azurewebsites.net/upload", formData, this.axiosConfig ).then(function (response) {
           
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
@@ -183,7 +182,7 @@ constructor () {
         // Request made to the backend api
         // Send formData object
         
-        axios.post("http://localhost:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
+        axios.post("https://api-ambev.azurewebsites.net/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
           console.log(response)

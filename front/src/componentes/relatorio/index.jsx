@@ -26,7 +26,7 @@ function Relatorio() {
     const [figura550, setFigura550] = useState([])
     const [figura560, setFigura560] = useState([])
     const [figura570, setFigura570] = useState([])
-    const [figura580, setFigura580] = useState([])
+    const [figura580, setFigura580] = useState([]) 
 
 
     const [valuePieChart, setValuePieChart] = useState([])
@@ -42,9 +42,10 @@ function Relatorio() {
     const [layoutTable, setLayoutTable] = useState([])
 
     useEffect(() => {
+    
 
-    axios.get("http://localhost:5000/graficos-relatorio").then(response => {
-        console.log(response.data)
+    axios.get("https://api-ambev.azurewebsites.net/graficos-relatorio").then(response => {
+        console.log(response.data.files)
         setValuePieChart(response.data.files[0].data[0].values)
         setlabelsPieChart(response.data.files[0].data[0].labels)
         setLayoutPieChart(response.data.files[0].layout.title)
@@ -67,6 +68,31 @@ function Relatorio() {
     }).catch(function (error) {
         console.log(error);
     })
+    /* axios.get("http://localhost:5000/graficos-relatorio-perifericos").then(response => {
+        console.log(response.data.files)
+        setFigura330(response.data.files[0])
+        setFigura205(response.data.files[1])
+        setFigura220(response.data.files[2])
+        setFigura240(response.data.files[3])
+        setFigura250(response.data.files[4])
+        setFigura255(response.data.files[5])
+        setFigura390(response.data.files[6])
+        setFigura400(response.data.files[7])
+        setFigura420(response.data.files[8])
+
+    })
+    axios.get("http://localhost:5000/graficos-relatorio-perifericos2").then(response => {
+        console.log(response.data.files)
+        setFigura440(response.data.files[0])
+        setFigura450(response.data.files[1])
+        setFigura470(response.data.files[2])
+        setFigura480(response.data.files[3])
+        setFigura550(response.data.files[4])
+        setFigura560(response.data.files[5])
+        setFigura570(response.data.files[6])
+        setFigura580(response.data.files[7])
+        
+    }) */
     
       }, [])
    
@@ -245,6 +271,153 @@ function Relatorio() {
    
     
 </div>
+{/* <div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data={[{type : figura330[0].data[0].type, x: figura330[0].data[0].x, y:figura330[0].data[0].y},
+                   {type : figura330[0].data[1].type, x: figura330[0].data[1].x, y:figura330[0].data[1].y},
+                   {type : figura330[0].data[2].type, x: figura330[0].data[2].x, y:figura330[0].data[2].y},
+                   {type : figura330[0].data[3].type, x: figura330[0].data[3].x, y:figura330[0].data[3].y},
+                   {type : figura330[0].data[4].type, x: figura330[0].data[4].x, y:figura330[0].data[4].y},
+                   {type : figura330[0].data[5].type, x: figura330[0].data[5].x, y:figura330[0].data[5].y}]}
+            
+            
+        />
+    </div>
+</div>
+ <div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+           data={[  {type : figura330[1].data[0].type, x: figura330[1].data[0].x, y:figura330[1].data[0].y},
+                    {type : figura330[1].data[1].type, x: figura330[1].data[1].x, y:figura330[1].data[1].y},
+                    {type : figura330[1].data[2].type, x: figura330[1].data[2].x, y:figura330[1].data[2].y},
+                    {type : figura330[1].data[3].type, x: figura330[1].data[3].x, y:figura330[1].data[3].y},
+                    {type : figura330[1].data[4].type, x: figura330[1].data[4].x, y:figura330[1].data[4].y},
+                    {type : figura330[1].data[5].type, x: figura330[1].data[5].x, y:figura330[1].data[5].y}]}
+        />
+    </div>
+</div> */}
+{/*
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura220.data}
+            layout={figura220.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura240.data}
+            layout={figura240.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura250.data}
+            layout={figura250.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura255.data}
+            layout={figura255.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura390.data}
+            layout={figura390.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura400.data}
+            layout={figura400.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura420.data}
+            layout={figura420.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura440.data}
+            layout={figura440.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura450.data}
+            layout={figura450.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura470.data}
+            layout={figura470.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura480.data}
+            layout={figura480.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura550.data}
+            layout={figura550.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura560.data}
+            layout={figura560.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura570.data}
+            layout={figura570.layout}
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={figura580.data}
+            layout={figura580.layout}
+        />
+    </div>
+</div> */}
 <div id="no-graph-sheet" class="folha2" style={{display:'none'}}>
     <div class="space"></div>
     <h5 class="text2">The report was not generated. Please go back to the main page and try again.</h5>
