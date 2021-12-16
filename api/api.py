@@ -42,16 +42,22 @@ def relatorio():
         print("erro")
         return "There is no graphic"
 """
-@app.route('/graficos-relatorio-temporais')
+@app.route('/graficos-relatorio-temporais', methods=['GET'])
 def return_graficos_temporais():
     reset = open('Reset.json')
     load_capacity = open('LoadCapacity.json')
     motorSpd = open('MotorSpd.json')
+    
+    return jsonify({'files':[json.load(reset), json.load(load_capacity), json.load(motorSpd) 
+    ]})
+
+@app.route('/graficos-relatorio-temporais2')
+def return_graficos_temporais2():
     speed_limits = open('speedLimits.json')
     fence_open = open('FenceOpen.json')
     error_grafico = open('Erros.json')
-    return jsonify({'files':[json.load(reset), json.load(load_capacity), json.load(motorSpd), 
-    json.load(speed_limits), json.load(fence_open), json.load(error_grafico)]})
+
+    return jsonify({'files': [json.load(speed_limits), json.load(fence_open), json.load(error_grafico)]})
     
 @app.route('/graficos-relatorio-perifericos')
 def return_perifericos():
