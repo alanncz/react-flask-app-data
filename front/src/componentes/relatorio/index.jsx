@@ -11,12 +11,20 @@ import axios from 'axios'
 function Relatorio() {
 
     const [figura330, setFigura330] = useState([])
-    const [figura205, setFigura205] = useState([])
+    
+
+    const [figura250, setFigura250] = useState([])
+    
+
+    const [figura390, setFigura390] = useState([])
+   
+
+   /*  const [figura205, setFigura205] = useState([])
     const [figura220, setFigura220] = useState([])
     const [figura240, setFigura240] = useState([])
-    const [figura250, setFigura250] = useState([])
+    
     const [figura255, setFigura255] = useState([])
-    const [figura390, setFigura390] = useState([])
+    
     const [figura400, setFigura400] = useState([])
     const [figura420, setFigura420] = useState([])
     const [figura440, setFigura440] = useState([])
@@ -26,7 +34,7 @@ function Relatorio() {
     const [figura550, setFigura550] = useState([])
     const [figura560, setFigura560] = useState([])
     const [figura570, setFigura570] = useState([])
-    const [figura580, setFigura580] = useState([]) 
+    const [figura580, setFigura580] = useState([])  */
 
 
     const [valuePieChart, setValuePieChart] = useState([])
@@ -44,7 +52,7 @@ function Relatorio() {
     useEffect(() => {
     
 
-    axios.get("https://api-ambev.azurewebsites.net/graficos-relatorio").then(response => {
+    axios.get("http://localhost:5000/graficos-relatorio").then(response => {
         console.log(response.data.files)
         setValuePieChart(response.data.files[0].data[0].values)
         setlabelsPieChart(response.data.files[0].data[0].labels)
@@ -57,30 +65,26 @@ function Relatorio() {
         setValueTable(response.data.files[1].data[0].cells.values)
         setLayoutTable(response.data.files[1].data[0].header.values)
         
-       if(valuePieChart == null){
+       /* if(valuePieChart == null){
         document.getElementById("secound-sheet").style.display = 'none'
         document.getElementById("third-sheet").style.display = 'none'
         document.getElementById("fourth-sheet").style.display = 'none'
         document.getElementById("no-graph-sheet").style.display = 'block'
-       }
+       } */
         
         
     }).catch(function (error) {
         console.log(error);
     })
-    /* axios.get("http://localhost:5000/graficos-relatorio-perifericos").then(response => {
+     axios.get("http://localhost:5000/graficos-relatorio-perifericos").then(response => {
         console.log(response.data.files)
         setFigura330(response.data.files[0])
-        setFigura205(response.data.files[1])
-        setFigura220(response.data.files[2])
-        setFigura240(response.data.files[3])
-        setFigura250(response.data.files[4])
-        setFigura255(response.data.files[5])
-        setFigura390(response.data.files[6])
-        setFigura400(response.data.files[7])
-        setFigura420(response.data.files[8])
+        setFigura250(response.data.files[1])
+        setFigura390(response.data.files[2])
+        
 
     })
+    /*
     axios.get("http://localhost:5000/graficos-relatorio-perifericos2").then(response => {
         console.log(response.data.files)
         setFigura440(response.data.files[0])
@@ -95,6 +99,7 @@ function Relatorio() {
     }) */
     
       }, [])
+      
    
     return(
         
@@ -271,41 +276,46 @@ function Relatorio() {
    
     
 </div>
-{/* <div class="folha2">
+
+<div class="folha2">
     <div class="graphDiv2">
-        <Plot
-            data={[{type : figura330[0].data[0].type, x: figura330[0].data[0].x, y:figura330[0].data[0].y},
-                   {type : figura330[0].data[1].type, x: figura330[0].data[1].x, y:figura330[0].data[1].y},
-                   {type : figura330[0].data[2].type, x: figura330[0].data[2].x, y:figura330[0].data[2].y},
-                   {type : figura330[0].data[3].type, x: figura330[0].data[3].x, y:figura330[0].data[3].y},
-                   {type : figura330[0].data[4].type, x: figura330[0].data[4].x, y:figura330[0].data[4].y},
-                   {type : figura330[0].data[5].type, x: figura330[0].data[5].x, y:figura330[0].data[5].y}]}
-            
-            
-        />
+        
+            <Plot
+            data={figura250.data}
+           
+        
+        /* data={[{type : figura.data[0].type, x: figura.data[0].x, y:figura.data[0].y},
+               {type : figura.data[1].type, x: figura.data[1].x, y:figura.data[1].y},
+               {type : figura.data[2].type, x: figura.data[2].x, y:figura.data[2].y},
+               {type : figura.data[3].type, x: figura.data[3].x, y:figura.data[3].y},
+               {type : figura.data[4].type, x: figura.data[4].x, y:figura.data[4].y},
+               {type : figura.data[5].type, x: figura.data[5].x, y:figura.data[5].y}]} */
+        
+        
+    />
+
+       
+        
     </div>
 </div>
+
  <div class="folha2">
     <div class="graphDiv2">
         <Plot
-           data={[  {type : figura330[1].data[0].type, x: figura330[1].data[0].x, y:figura330[1].data[0].y},
-                    {type : figura330[1].data[1].type, x: figura330[1].data[1].x, y:figura330[1].data[1].y},
-                    {type : figura330[1].data[2].type, x: figura330[1].data[2].x, y:figura330[1].data[2].y},
-                    {type : figura330[1].data[3].type, x: figura330[1].data[3].x, y:figura330[1].data[3].y},
-                    {type : figura330[1].data[4].type, x: figura330[1].data[4].x, y:figura330[1].data[4].y},
-                    {type : figura330[1].data[5].type, x: figura330[1].data[5].x, y:figura330[1].data[5].y}]}
+           data={figura330.data}
         />
     </div>
-</div> */}
-{/*
+</div> 
+
 <div class="folha2">
     <div class="graphDiv2">
         <Plot
-            data ={figura220.data}
-            layout={figura220.layout}
+            data={figura390.data}
         />
     </div>
-</div>
+</div> 
+ 
+{/*
 <div class="folha2">
     <div class="graphDiv2">
         <Plot

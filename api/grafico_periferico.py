@@ -16,19 +16,19 @@ def gerar_graficos_perifericos(file_name):
     df.loc[(df['PL_330_LIM_TORQUE'] > 1), 'PL_330_LIM_TORQUE'] = 'null'
 
     # Filtro 205
-    df.loc[(df['PL_205_LIM_CORRENTE'] > 1), 'PL_205_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_205_LIM_CORRENTE'] > 1), 'PL_205_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_205_SOB_INVERSOR'] > 1), 'PL_205_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_205_LIM_TORQUE'] > 1), 'PL_205_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_205_LIM_TORQUE'] > 1), 'PL_205_LIM_TORQUE'] = 'null' """
 
     # Filtro 220
-    df.loc[(df['PL_220_LIM_CORRENTE'] > 1), 'PL_220_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_220_LIM_CORRENTE'] > 1), 'PL_220_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_220_SOB_INVERSOR'] > 1), 'PL_220_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_220_LIM_TORQUE'] > 1), 'PL_220_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_220_LIM_TORQUE'] > 1), 'PL_220_LIM_TORQUE'] = 'null' """
 
     # Filtro 240
-    df.loc[(df['PL_240_LIM_CORRENTE'] > 1), 'PL_240_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_240_LIM_CORRENTE'] > 1), 'PL_240_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_240_SOB_INVERSOR'] > 1), 'PL_240_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_240_LIM_TORQUE'] > 1), 'PL_240_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_240_LIM_TORQUE'] > 1), 'PL_240_LIM_TORQUE'] = 'null' """
 
     # Filtro 250
     df.loc[(df['PL_250_LIM_CORRENTE'] > 1), 'PL_250_LIM_CORRENTE'] = 'null'
@@ -36,9 +36,9 @@ def gerar_graficos_perifericos(file_name):
     df.loc[(df['PL_250_LIM_TORQUE'] > 1), 'PL_250_LIM_TORQUE'] = 'null'
 
     # Filtro 255
-    df.loc[(df['PL_255_LIM_CORRENTE'] > 1), 'PL_255_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_255_LIM_CORRENTE'] > 1), 'PL_255_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_255_SOB_INVERSOR'] > 1), 'PL_255_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_255_LIM_TORQUE'] > 1), 'PL_255_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_255_LIM_TORQUE'] > 1), 'PL_255_LIM_TORQUE'] = 'null' """
 
     # Filtro 390
     df.loc[(df['PL_390_LIM_CORRENTE'] > 1), 'PL_390_LIM_CORRENTE'] = 'null'
@@ -46,54 +46,54 @@ def gerar_graficos_perifericos(file_name):
     df.loc[(df['PL_390_LIM_TORQUE'] > 1), 'PL_390_LIM_TORQUE'] = 'null'
 
     # Filtro 400
-    df.loc[(df['PL_400_LIM_CORRENTE'] > 1), 'PL_400_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_400_LIM_CORRENTE'] > 1), 'PL_400_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_400_SOB_INVERSOR'] > 1), 'PL_400_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_400_LIM_TORQUE'] > 1), 'PL_400_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_400_LIM_TORQUE'] > 1), 'PL_400_LIM_TORQUE'] = 'null' """
 
     # Filtro 420
-    df.loc[(df['PL_420_LIM_CORRENTE'] > 1), 'PL_420_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_420_LIM_CORRENTE'] > 1), 'PL_420_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_420_SOB_INVERSOR'] > 1), 'PL_420_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_420_LIM_TORQUE'] > 1), 'PL_420_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_420_LIM_TORQUE'] > 1), 'PL_420_LIM_TORQUE'] = 'null' """
 
     # Filtro 440
-    df.loc[(df['PL_440_LIM_CORRENTE'] > 1), 'PL_440_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_440_LIM_CORRENTE'] > 1), 'PL_440_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_440_SOB_INVERSOR'] > 1), 'PL_440_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_440_LIM_TORQUE'] > 1), 'PL_440_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_440_LIM_TORQUE'] > 1), 'PL_440_LIM_TORQUE'] = 'null' """
 
     # Filtro 450
-    df.loc[(df['PL_450_LIM_CORRENTE'] > 1), 'PL_450_LIM_CORRENTE'] = 'null'
-    df.loc[(df['PL_450_SOB_INVERSOR'] > 1), 'PL_450_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_450_LIM_TORQUE'] > 1), 'PL_450_LIM_TORQUE'] = 'null'
+    #df.loc[(df['PL_450_LIM_CORRENTE'] > 1), 'PL_450_LIM_CORRENTE'] = 'null'
+    #df.loc[(df['PL_450_SOB_INVERSOR'] > 1), 'PL_450_SOB_INVERSOR'] = 'null'
+    #df.loc[(df['PL_450_LIM_TORQUE'] > 1), 'PL_450_LIM_TORQUE'] = 'null'
 
     # Filtro 470
-    df.loc[(df['PL_470_LIM_CORRENTE'] > 1), 'PL_470_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_470_LIM_CORRENTE'] > 1), 'PL_470_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_470_SOB_INVERSOR'] > 1), 'PL_470_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_470_LIM_TORQUE'] > 1), 'PL_470_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_470_LIM_TORQUE'] > 1), 'PL_470_LIM_TORQUE'] = 'null' """
 
     # Filtro 480
-    df.loc[(df['PL_480_LIM_CORRENTE'] > 1), 'PL_480_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_480_LIM_CORRENTE'] > 1), 'PL_480_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_480_SOB_INVERSOR'] > 1), 'PL_480_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_480_LIM_TORQUE'] > 1), 'PL_480_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_480_LIM_TORQUE'] > 1), 'PL_480_LIM_TORQUE'] = 'null' """
 
     # Filtro 550
-    df.loc[(df['PL_550_LIM_CORRENTE'] > 1), 'PL_550_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_550_LIM_CORRENTE'] > 1), 'PL_550_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_550_SOB_INVERSOR'] > 1), 'PL_550_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_550_LIM_TORQUE'] > 1), 'PL_550_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_550_LIM_TORQUE'] > 1), 'PL_550_LIM_TORQUE'] = 'null' """
 
     # Filtro 560
-    df.loc[(df['PL_560_LIM_CORRENTE'] > 1), 'PL_560_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_560_LIM_CORRENTE'] > 1), 'PL_560_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_560_SOB_INVERSOR'] > 1), 'PL_560_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_560_LIM_TORQUE'] > 1), 'PL_560_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_560_LIM_TORQUE'] > 1), 'PL_560_LIM_TORQUE'] = 'null' """
 
     # Filtro 570
-    df.loc[(df['PL_570_LIM_CORRENTE'] > 1), 'PL_570_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_570_LIM_CORRENTE'] > 1), 'PL_570_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_570_SOB_INVERSOR'] > 1), 'PL_570_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_570_LIM_TORQUE'] > 1), 'PL_570_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_570_LIM_TORQUE'] > 1), 'PL_570_LIM_TORQUE'] = 'null' """
 
     # Filtro 580
-    df.loc[(df['PL_580_LIM_CORRENTE'] > 1), 'PL_580_LIM_CORRENTE'] = 'null'
+    """ df.loc[(df['PL_580_LIM_CORRENTE'] > 1), 'PL_580_LIM_CORRENTE'] = 'null'
     df.loc[(df['PL_580_SOB_INVERSOR'] > 1), 'PL_580_SOB_INVERSOR'] = 'null'
-    df.loc[(df['PL_580_LIM_TORQUE'] > 1), 'PL_580_LIM_TORQUE'] = 'null'
+    df.loc[(df['PL_580_LIM_TORQUE'] > 1), 'PL_580_LIM_TORQUE'] = 'null' """
 
 
     # Gerando gráficos
@@ -174,7 +174,7 @@ def gerar_graficos_perifericos(file_name):
         height=1000,
         showlegend=True,
     )
-
+    """
     # Figura 205
     fig_205 = make_subplots(rows=6, cols=1,
                         shared_xaxes=True,
@@ -330,7 +330,7 @@ def gerar_graficos_perifericos(file_name):
         height=1000,
         showlegend=True,
     )
-
+    
     # Figura 240
     fig_240 = make_subplots(rows=6, cols=1,
                         shared_xaxes=True,
@@ -408,7 +408,7 @@ def gerar_graficos_perifericos(file_name):
         height=1000,
         showlegend=True,
     )
-
+    """
     # Figura 250
     fig_250 = make_subplots(rows=6, cols=1,
                         shared_xaxes=True,
@@ -486,7 +486,7 @@ def gerar_graficos_perifericos(file_name):
         height=1000,
         showlegend=True,
     )
-
+    """
     # Figura 255
     fig_255 = make_subplots(rows=6, cols=1,
                         shared_xaxes=True,
@@ -564,7 +564,7 @@ def gerar_graficos_perifericos(file_name):
         height=1000,
         showlegend=True,
     )
-
+    """
     # Figura 390
     fig_390 = make_subplots(rows=6, cols=1,
                         shared_xaxes=True,
@@ -576,7 +576,7 @@ def gerar_graficos_perifericos(file_name):
                             [{"type": "scatter"}],
                             [{"type": "scatter"}]]
                         )
-
+    
     fig_390.add_trace(
         go.Scatter(
             x=df["Time"],
@@ -642,7 +642,7 @@ def gerar_graficos_perifericos(file_name):
         height=1000,
         showlegend=True,
     )
-
+    """
     # Figura 400
     fig_400 = make_subplots(rows=6, cols=1,
                         shared_xaxes=True,
@@ -1422,13 +1422,15 @@ def gerar_graficos_perifericos(file_name):
         height=1000,
         showlegend=True,
     )
+    """
     fig_330.write_json("fig_330.json")
-    fig_205.write_json("fig_205.json")
-    fig_220.write_json("fig_220.json")
-    fig_240.write_json("fig_240.json")
+    #fig_205.write_json("fig_205.json")
+   # fig_220.write_json("fig_220.json")
+    #fig_240.write_json("fig_240.json")
     fig_250.write_json("fig_250.json")
-    fig_255.write_json("fig_255.json")
+   # fig_255.write_json("fig_255.json")
     fig_390.write_json("fig_390.json")
+    """
     fig_400.write_json("fig_400.json")
     fig_420.write_json("fig_420.json")
     fig_440.write_json("fig_440.json")
@@ -1439,5 +1441,6 @@ def gerar_graficos_perifericos(file_name):
     fig_560.write_json("fig_560.json")
     fig_570.write_json("fig_570.json")
     fig_580.write_json("fig_580.json")
-    print("17 graficos gerados")
+    """
+    print("3 graficos gerados")
 

@@ -98,7 +98,7 @@ constructor () {
 
         // Request made to the backend api
         // Send formData object
-        axios.post("https://api-ambev.azurewebsites.net/upload", formData, this.axiosConfig).then(function (response) {
+        axios.post("http://localhost:5000/upload", formData, this.axiosConfig).then(function (response) {
           console.log(response)
         }).catch(function (error) {
           console.log(error.toJSON());
@@ -107,7 +107,7 @@ constructor () {
 
         });
 
-        axios.post("https://api-ambev.azurewebsites.net/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
+        axios.post("http://localhost:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
           console.log(response.data)
@@ -142,7 +142,7 @@ constructor () {
 
         // Request made to the backend api
         // Send formData object
-        axios.post("https://api-ambev.azurewebsites.net/upload", formData, this.axiosConfig ).then(function (response) {
+        axios.post("http://localhost:5000/upload", formData, this.axiosConfig ).then(function (response) {
           
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
@@ -182,7 +182,7 @@ constructor () {
         // Request made to the backend api
         // Send formData object
         
-        axios.post("https://api-ambev.azurewebsites.net/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
+        axios.post("http://localhost:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
           console.log(response)

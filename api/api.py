@@ -7,7 +7,13 @@ from werkzeug.utils import secure_filename
 import gerador_graficos
 import generate_table
 from flask_cors import CORS
+from pymongo import MongoClient
 
+
+
+client = MongoClient("mongodb://newplatformdb:9TXjuzqgZX8EUFcLojLX0TxZ1hxORdsbhdBdBjAs3aOyMTLNQ8Gy5UaU52AVayHipVipGuYw2EfJXcezmzD5Mw==@newplatformdb.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@newplatformdb@")
+
+db = client.get_database('robodatabase')
 app = Flask(__name__, template_folder='templates', static_folder='static')
 context = ('web.crt', 'web.key')
 app.run('0.0.0.0', debug=True, port=5000, ssl_context='adhoc')
@@ -38,20 +44,18 @@ def relatorio():
 @app.route('/graficos-relatorio-perifericos')
 def return_perifericos():
     figura330 = open('fig_330.json')
-    figura205 = open('fig_205.json')
-    figura220 = open("fig_220.json")
-    figura240 = open("fig_240.json")
+  #  figura205 = open('fig_205.json')
+   # figura220 = open("fig_220.json")
+    #figura240 = open("fig_240.json")
     figura250 = open("fig_250.json")
-    figura255 = open("fig_255.json")
+    #figura255 = open("fig_255.json")
     figura390 = open("fig_390.json")
-    figura400 = open("fig_400.json")
-    figura420 = open("fig_420.json")
+    #figura400 = open("fig_400.json")
+    #figura420 = open("fig_420.json")
     
    
-    return jsonify({'files' : [json.load(figura330), json.load(figura205), json.load(figura220), json.load(figura240),
-    json.load(figura250), json.load(figura255), json.load(figura390), json.load(figura400),
-    json.load(figura420)]})
-
+    return jsonify({'files' : [json.load(figura330),json.load(figura250), json.load(figura390)]})
+"""
 @app.route('/graficos-relatorio-perifericos2')
 def return_perifericos2():
     figura440 = open("fig_440.json")
@@ -65,7 +69,7 @@ def return_perifericos2():
     return jsonify({'files' : [json.load(figura440),json.load(figura450),json.load(figura470),
     json.load(figura480), json.load(figura550), json.load(figura560), json.load(figura570),
     json.load(figura580)]})
-
+"""
 @app.route('/upload', methods=['POST'])
 def upload():
      
@@ -82,7 +86,6 @@ def upload():
         print("arquivo salvo")
         # upload_mongo.fazer_upload(file.filename)
         gerador_graficos.gerar_graficos(file.filename, file_type)
-
         generate_table.gerar_tabela(file.filename, "error_manual.xlsx", file_type)
         print("tabela gerada")
         print("Success")
