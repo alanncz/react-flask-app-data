@@ -282,7 +282,7 @@ function Relatorio() {
         
             <Plot
             data={figura250.data}
-           
+            layout={figura250.layout}
         
         /* data={[{type : figura.data[0].type, x: figura.data[0].x, y:figura.data[0].y},
                {type : figura.data[1].type, x: figura.data[1].x, y:figura.data[1].y},
@@ -303,6 +303,7 @@ function Relatorio() {
     <div class="graphDiv2">
         <Plot
            data={figura330.data}
+           layout={figura330.layout}
         />
     </div>
 </div> 
@@ -311,6 +312,7 @@ function Relatorio() {
     <div class="graphDiv2">
         <Plot
             data={figura390.data}
+            layout={figura390.layout}
         />
     </div>
 </div> 

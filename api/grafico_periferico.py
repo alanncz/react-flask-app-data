@@ -143,7 +143,7 @@ def gerar_graficos_perifericos(file_name):
         go.Scatter(
             x=df["Time"],
             y=(df['STATUS']),
-            mode='markers',
+            mode='lines',
             name='STATUS'
         ),
         row=4, col=1
@@ -455,7 +455,7 @@ def gerar_graficos_perifericos(file_name):
         go.Scatter(
             x=df["Time"],
             y=(df['STATUS']),
-            mode='markers',
+            mode='lines',
             name='STATUS'
         ),
         row=4, col=1
@@ -611,7 +611,7 @@ def gerar_graficos_perifericos(file_name):
         go.Scatter(
             x=df["Time"],
             y=(df['STATUS']),
-            mode='markers',
+            mode='lines',
             name='STATUS'
         ),
         row=4, col=1
