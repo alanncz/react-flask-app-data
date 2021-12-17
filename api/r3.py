@@ -13,9 +13,8 @@ class Erro:
         self.task = task
 
 #captura todos os erros do arquivo csv
-# dirRobot = ['errors_fanuc_new.xlsx']
-def graficos_temporais(file_name):
-    dirRobot = [file_name]
+def gerar_graficos_temporais_reset(filename):
+    dirRobot = [filename]
 
     objetos = []
     groupEvents = dict()
@@ -37,24 +36,23 @@ def graficos_temporais(file_name):
                 erro.timestamp = datetime.strptime(erro.timestamp, " %d-%b-%y %H:%M:%S ")
                 objetos.append(erro)
                 
-    DataStart = datetime(2021, 11, 14, 00,00,00)
-    print("dataStart: ",DataStart.strftime("%d-%b-%y %H:%M:%S"))
-    DataEnd = datetime(2021, 12, 2, 00,00,00)
-    print("dataStart: ",DataEnd.strftime("%d-%b-%y %H:%M:%S"))
+    # DataStart = df.loc[0,'TIMESTAMP']
+    # DataEnd = df.loc[len(df)-1,'TIMESTAMP']
+    dicTime ={}
 
 
 
     for event in objetos:
-        minutos = event.timestamp.strftime("%M")
-        minutos = int(int(minutos)/10)*10
-        data = event.timestamp.strftime(" %d-%b-%y %H:" + str(minutos) + ":00 ")
+        Hour = event.timestamp.strftime("%H")
+        Hour = int(int(Hour)/2)*2
+        data = event.timestamp.strftime(" %d-%b-%y " + str(Hour) + ":00:00 ")
         data = datetime.strptime(data, " %d-%b-%y %H:%M:%S ")
-        if((DataStart < data) and (data < DataEnd)):
-            if data in dicTime.keys():
-                dicTime[data].append(event)
-            else:
-                dicTime[data] = []
-                dicTime[data].append(event)
+        # if((DataStart < data) and (data < DataEnd)):
+        if data in dicTime.keys():
+            dicTime[data].append(event)
+        else:
+            dicTime[data] = []
+            dicTime[data].append(event)
 
     for key in sorted(dicTime.keys()):
         groupEvents[key] = len(dicTime[key])
@@ -84,73 +82,59 @@ def graficos_temporais(file_name):
         groupFenceOpen[key]= FenceOpen
 
     Reset = {}
-    Reset["TimeStrap"] = []
-    Reset["Erros"] = []
+    Reset["TimeStra"] = []
+    Reset["Reset"] = []
 
     for event in groupReset:
-        Reset["TimeStrap"].append(event)
-        Reset["Erros"].append(groupReset[event])
+        Reset["TimeStra"].append(event)
+        Reset["Reset"].append(groupReset[event])
 
     dr = pd.DataFrame(data=Reset)
-    fig = px.line(dr, x="TimeStrap", y="Erros", title="Reset x Time") 
-    fig.write_json('Reset.json')
-
     LoadCapacity = {}
-    LoadCapacity["TimeStrap"] = []
-    LoadCapacity["Erros"] = []
+    LoadCapacity["Ti"] = []
+    LoadCapacity["Load Capacity"] = []
 
     for event in groupLoadCapacity:
-        LoadCapacity["TimeStrap"].append(event)
-        LoadCapacity["Erros"].append(groupLoadCapacity[event])
+        LoadCapacity["Ti"].append(event)
+        LoadCapacity["Load Capacity"].append(groupLoadCapacity[event])
 
     dlc = pd.DataFrame(data=LoadCapacity)
-    fig = px.line(dlc, x="TimeStrap", y="Erros", title="Load Capacity x Time") 
-    fig.write_json('LoadCapacity.json')
-
     MotorSpd = {}
-    MotorSpd["TimeStrap"] = []
-    MotorSpd["Erros"] = []
+    MotorSpd["Timestamp"] = []
+    MotorSpd["Motor Speed"] = []
 
     for event in groupMotorSpd:
-        MotorSpd["TimeStrap"].append(event)
-        MotorSpd["Erros"].append(groupMotorSpd[event])
+        MotorSpd["Timestamp"].append(event)
+        MotorSpd["Motor Speed"].append(groupMotorSpd[event])
 
     dms = pd.DataFrame(data=MotorSpd)
-    fig = px.line(dms, x="TimeStrap", y="Erros", title="MotorSpd x Time") 
-    fig.write_json('MotorSpd.json')
-
     speedLimits = {}
-    speedLimits["TimeStrap"] = []
-    speedLimits["Erros"] = []
+    speedLimits["Time"] = []
+    speedLimits["Speed Limits"] = []
 
     for event in groupSpeedLimits:
-        speedLimits["TimeStrap"].append(event)
-        speedLimits["Erros"].append(groupSpeedLimits[event])
+        speedLimits["Time"].append(event)
+        speedLimits["Speed Limits"].append(groupSpeedLimits[event])
 
     dsl = pd.DataFrame(data=speedLimits)
-    fig = px.line(dsl, x="TimeStrap", y="Erros", title="Speed Limits x Time") 
-    fig.write_json('speedLimits.json')
-
     FenceOpen = {}
-    FenceOpen["TimeStrap"] = []
-    FenceOpen["Erros"] = []
+    FenceOpen["TimeStr"] = []
+    FenceOpen["Fence Open"] = []
 
     for event in groupFenceOpen:
-        FenceOpen["TimeStrap"].append(event)
-        FenceOpen["Erros"].append(groupFenceOpen[event])
+        FenceOpen["TimeStr"].append(event)
+        FenceOpen["Fence Open"].append(groupFenceOpen[event])
 
-    dsl = pd.DataFrame(data=FenceOpen)
-    fig = px.line(dsl, x="TimeStrap", y="Erros", title="Fence Open x Time") 
-    fig.write_json('FenceOpen.json')
+    dfo = pd.DataFrame(data=FenceOpen)
+    df = pd.concat([dr,dlc,dms,dsl,dfo], axis=1)
+    erro = pd.DataFrame(df['Timestamp'])
+    erro['Reset'] = df['Reset']
+    erro['Load Capacity'] = df['Load Capacity']
+    erro['Fence Open'] = df['Fence Open']
+    erro['Speed Limits'] = df['Speed Limits']
+    erro['Motor Speed'] = df['Motor Speed']
+    fig = px.bar(erro, x="Timestamp", y=['Reset', 'Load Capacity', 'Fence Open', 'Speed Limits',
+        'Motor Speed'], title="Wide-Form Input")
 
-    d = {}
-    d["TimeStrap"] = []
-    d["Erros"] = []
-
-    for event in groupEvents:
-        d["TimeStrap"].append(event)
-        d["Erros"].append(groupEvents[event])
-
-    df = pd.DataFrame(data=d)
-    fig = px.line(df, x="TimeStrap", y="Erros", title="Erros x Time") 
-    fig.write_json('Erros.json')
+    fig.show()
+    fig.write_json('Reset.json')

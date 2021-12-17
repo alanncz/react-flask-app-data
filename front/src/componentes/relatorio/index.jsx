@@ -19,6 +19,13 @@ function Relatorio() {
     const [figura390, setFigura390] = useState([])
    
 
+    const [reset, setReset] = useState([])
+    const [load_capacity, setLoadCapacity] = useState([])
+    const [motorSpd, setMotorSpd] = useState([])
+    const [speed_limits, setSpeed_limits] = useState([])
+    const [fence_open, setFence_open] = useState([])
+    
+
    /*  const [figura205, setFigura205] = useState([])
     const [figura220, setFigura220] = useState([])
     const [figura240, setFigura240] = useState([])
@@ -52,7 +59,7 @@ function Relatorio() {
     useEffect(() => {
     
 
-    axios.get("http://localhost:5000/graficos-relatorio").then(response => {
+    axios.get("http://150.165.167.59:5000/graficos-relatorio").then(response => {
         console.log(response.data.files)
         setValuePieChart(response.data.files[0].data[0].values)
         setlabelsPieChart(response.data.files[0].data[0].labels)
@@ -76,27 +83,36 @@ function Relatorio() {
     }).catch(function (error) {
         console.log(error);
     })
-     axios.get("http://localhost:5000/graficos-relatorio-perifericos").then(response => {
+     axios.get("http://150.165.167.59:5000/graficos-relatorio-perifericos").then(response => {
         console.log(response.data.files)
         setFigura330(response.data.files[0])
         setFigura250(response.data.files[1])
         setFigura390(response.data.files[2])
         
 
-    })
-    /*
-    axios.get("http://localhost:5000/graficos-relatorio-perifericos2").then(response => {
-        console.log(response.data.files)
-        setFigura440(response.data.files[0])
-        setFigura450(response.data.files[1])
-        setFigura470(response.data.files[2])
-        setFigura480(response.data.files[3])
-        setFigura550(response.data.files[4])
-        setFigura560(response.data.files[5])
-        setFigura570(response.data.files[6])
-        setFigura580(response.data.files[7])
+    }).catch(function (error){
+        console.log(error);
+        document.getElementById('graficoPerifirico250').style.display = 'none'
+
+        document.getElementById('graficoPerifirico390').style.display = 'none'
         
-    }) */
+        document.getElementById('graficoPerifirico330').style.display = 'none'
+    })
+    axios.get("http://150.165.167.59:5000/graficos-relatorio-temporais").then(response => {
+        console.log(response.data.files)
+        setReset(response.data.files[0])
+        setLoadCapacity(response.data.files[1])
+        setMotorSpd(response.data.files[2])
+        
+    })
+    
+    axios.get("http://150.165.167.59:5000/graficos-relatorio-temporais2").then(response => {
+        console.log(response.data.files)
+        setSpeed_limits(response.data.files[0])
+        setFence_open(response.data.files[1])
+        
+        
+    }) 
     
       }, [])
       
@@ -105,105 +121,129 @@ function Relatorio() {
         
         <div>
 
-<body id="corpo">
-    <div class="folha1">
-        <div class="sectionOne" style={{display:'inline-block'}}>
-                <div class="logoImg">
+<div id="corpo">
+    <div className="folha1">
+        <div className="sectionOne" style={{display:'inline-block'}}>
+                <div className="logoImg">
                 <img alt="logo Ai Robots" src={logoAi}/>
             </div>
             
-            <div class="logoImg2" >
-                <img alt="logo fanuc" class="imgfanuc" src={logo2}/>
+            <div className="logoImg2" >
+                <img alt="logo fanuc" className="imgfanuc" src={logo2}/>
             </div>
         </div>
         <div>
-            <h2 class="title">HEALTH CHECK REPORT</h2>
+            <h2 className="title">HEALTH CHECK REPORT</h2>
          </div>
          <div class="divBackImg">
-            <img alt="background" class="imgBackground" src={background_image}/>
+            <img alt="background" className="imgBackground" src={background_image}/>
          </div>
     
         <div class="sectionTwo">
             <table>
-                <tr>
-                    <td>
-                        <strong>
-                         Serial Number:
-                        </strong>
-                    </td>
-                    <td class="resposta">
-                        ---
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>
+                            Serial Number:
+                            </strong>
+                            
+                        </td>
+                        <td class="resposta">---</td>
+                        
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>
                         <strong>
                         Robot Name:
                         </strong>
-                    </td>
-                    <td class="resposta">
+                        </td>
+                        <td class="resposta">
                         Fanuc
-                    </td>
+                        </td>
+                    </tr>
+                    
 
-                </tr>
-                <tr>
-                    <td>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>
                         <strong>Robot Model: </strong>
-                    </td>
-                    <td class="resposta">
+                        </td>
+                        <td class="resposta">
                         M70iC/50
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                          <strong>Robot Description: </strong>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>
+                        <strong>Robot Description: </strong>
 
-                    </td>
-                    <td class="resposta">
-                       ---
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                        </td>
+                        <td class="resposta">---</td>
+
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>
                         <strong>
                         Company:
                         </strong>
-                    </td>
-                    <td class="resposta">
+                        </td>
+                        <td class="resposta">
+
                         AiRobots
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>
                         <strong>
                              Unity Code:
                         </strong>
-                    </td>
-                    <td class="resposta">
+                        </td>
+                        <td class="resposta">
                         ---
-                    </td>
+                            </td> 
+                    </tr>
+                    
+                    
 
-                </tr>
-                <tr>
-                    <td>
-                       <strong>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>
+                        <strong>
                         Created By:
                         </strong>
-                    </td>
-                    <td class="resposta">
+                        </td>
+                       <td class="resposta">
                         ---
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                       <strong>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>
+                        <strong>
                             Email:
                         </strong>
-                    </td>
-                    <td class="resposta">
+                        </td>
+                       <td class="resposta">
                         ---
-                    </td>
-                </tr>
+                            </td>
+                    </tr>
+                    
+                </tbody>
 
             </table>
 
@@ -277,29 +317,61 @@ function Relatorio() {
     
 </div>
 
+
+ 
+ 
+
 <div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={load_capacity.data}
+            layout={load_capacity.layout}
+            
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={motorSpd.data}
+            layout={motorSpd.layout}
+            
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={speed_limits.data}
+            layout={speed_limits.layout}
+            
+        />
+    </div>
+</div>
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={fence_open.data}
+            layout={fence_open.layout}
+           
+        />
+    </div>
+</div>
+
+<div id="graficoPerifirico250" class="folhaPeriferico">
     <div class="graphDiv2">
         
             <Plot
             data={figura250.data}
             layout={figura250.layout}
-        
-        /* data={[{type : figura.data[0].type, x: figura.data[0].x, y:figura.data[0].y},
-               {type : figura.data[1].type, x: figura.data[1].x, y:figura.data[1].y},
-               {type : figura.data[2].type, x: figura.data[2].x, y:figura.data[2].y},
-               {type : figura.data[3].type, x: figura.data[3].x, y:figura.data[3].y},
-               {type : figura.data[4].type, x: figura.data[4].x, y:figura.data[4].y},
-               {type : figura.data[5].type, x: figura.data[5].x, y:figura.data[5].y}]} */
-        
-        
-    />
-
        
         
+    />
+ 
     </div>
 </div>
-
- <div class="folha2">
+ 
+ <div id="graficoPerifirico330" class="folhaPeriferico">
     <div class="graphDiv2">
         <Plot
            data={figura330.data}
@@ -308,7 +380,7 @@ function Relatorio() {
     </div>
 </div> 
 
-<div class="folha2">
+<div id="graficoPerifirico390" class="folhaPeriferico">
     <div class="graphDiv2">
         <Plot
             data={figura390.data}
@@ -316,56 +388,18 @@ function Relatorio() {
         />
     </div>
 </div> 
+
+<div class="folha2">
+    <div class="graphDiv2">
+        <Plot
+            data ={reset.data}
+            layout={reset.layout}
+           
+        />
+    </div>
+</div>
  
 {/*
-<div class="folha2">
-    <div class="graphDiv2">
-        <Plot
-            data ={figura240.data}
-            layout={figura240.layout}
-        />
-    </div>
-</div>
-<div class="folha2">
-    <div class="graphDiv2">
-        <Plot
-            data ={figura250.data}
-            layout={figura250.layout}
-        />
-    </div>
-</div>
-<div class="folha2">
-    <div class="graphDiv2">
-        <Plot
-            data ={figura255.data}
-            layout={figura255.layout}
-        />
-    </div>
-</div>
-<div class="folha2">
-    <div class="graphDiv2">
-        <Plot
-            data ={figura390.data}
-            layout={figura390.layout}
-        />
-    </div>
-</div>
-<div class="folha2">
-    <div class="graphDiv2">
-        <Plot
-            data ={figura400.data}
-            layout={figura400.layout}
-        />
-    </div>
-</div>
-<div class="folha2">
-    <div class="graphDiv2">
-        <Plot
-            data ={figura420.data}
-            layout={figura420.layout}
-        />
-    </div>
-</div>
 <div class="folha2">
     <div class="graphDiv2">
         <Plot
@@ -436,7 +470,7 @@ function Relatorio() {
     <div class="space"></div>
 </div>
 <div class="space"></div>
-</body>
+</div>
         </div>
     )
 }

@@ -1,5 +1,7 @@
 
-from temporal_test import graficos_temporais
+from r3 import gerar_graficos_temporais_reset
+from temporal_pronto import gerar_graficos_temporais
+
 from grafico_periferico import gerar_graficos_perifericos
 from flask import json, request, Flask, jsonify
 import upload_mongo
@@ -55,9 +57,9 @@ def return_graficos_temporais():
 def return_graficos_temporais2():
     speed_limits = open('speedLimits.json')
     fence_open = open('FenceOpen.json')
-    error_grafico = open('Erros.json')
+    
 
-    return jsonify({'files': [json.load(speed_limits), json.load(fence_open), json.load(error_grafico)]})
+    return jsonify({'files': [json.load(speed_limits), json.load(fence_open)]})
     
 @app.route('/graficos-relatorio-perifericos')
 def return_perifericos():
@@ -105,7 +107,8 @@ def upload():
         # upload_mongo.fazer_upload(file.filename)
         gerador_graficos.gerar_graficos(file.filename, file_type)
         generate_table.gerar_tabela(file.filename, "error_manual.xlsx", file_type)
-        graficos_temporais(filename)
+        gerar_graficos_temporais(file.filename)
+        gerar_graficos_temporais_reset(file.filename)
         print("tabela gerada")
         print("Success")
         return "O gráfico foi gerado"

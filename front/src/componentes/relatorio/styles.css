@@ -60,8 +60,8 @@
         letter-spacing:0.06em;
         padding-top:10px;
     }
-    #corpo table tr td.resposta{
-        padding-left: 1050px;
+    #corpo tbody tr td.resposta{
+        padding-left: 1000px;
         text-align:right;
         color:#55595C;
     }
@@ -79,10 +79,20 @@
         margin-left: 12%;
         margin-top: 50px;
         padding: 37.5px;
-        box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
+        box-shadow: none;
     
     }
+    #corpo div.folhaPeriferico{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: 1200px;
+        margin-left: 12%;
+        margin-top: 50px;
+        padding: 37.5px;
+        box-shadow: none;
     
+    }
     #corpo h3.t2{
         text-align:center;
         font-size:xx-large;
@@ -195,8 +205,8 @@
         letter-spacing:0.06em;
         padding-top:10px;
     }
-    #corpo table tr td.resposta{
-        padding-left: 750px;
+    #corpo tbody tr td.resposta{
+        padding-left: 700px;
         text-align:right;
         color:#55595C;
     }
@@ -264,6 +274,17 @@
         height: fit-content;
         margin-left: 0;
     }   
+    #corpo div.folhaPeriferico{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: 1200px;
+        margin-left: 12%;
+        margin-top: 50px;
+        padding: 37.5px;
+        box-shadow: none;
+    
+    }
 }
 
 @media only screen and (max-device-width: 1399px){
@@ -327,8 +348,8 @@
         letter-spacing:0.06em;
         padding-top:10px;
     }
-    #corpo table tr td.resposta{
-        padding-left: 750px;
+    #corpo tbody tr td.resposta{
+        padding-left: 700px;
         text-align:right;
         color:#55595C;
     }
@@ -381,6 +402,17 @@
     #corpo div.space{
     width:auto;
     height:100px;
+    }
+    #corpo div.folhaPeriferico{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: 1200px;
+        margin-left: 5.2%;
+        margin-top: 50px;
+        padding: 37.5px;
+        box-shadow: 0 1px 5px rgba(182,183,198,255)  , 0 0 10px rgba(243,243,243,255)  inset;
+    
     }
     
 }
@@ -443,9 +475,9 @@
         letter-spacing:0.06em;
         padding-top:10px;
     }
-    #corpo table tr td.resposta{
+    #corpo tbody tr td.resposta{
         font-family: 'Roboto', sans-serif;
-        padding-left: 400px;
+        padding-left: 350px;
         text-align:right;
         color:#55595C;
         font-size:15px;
@@ -494,6 +526,162 @@
     width:auto;
     height:100px;
     }
+    #corpo div.folhaPeriferico{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: 1200px;
+        margin-left: 12%;
+        margin-top: 50px;
+        padding: 37.5px;
+        box-shadow: none;
+    
+    }
     
 }
+@media print{
+    #corpo{
+        display:block;
+        background-color: #fff;
+        width:90%;
+        height:100%;
+        padding-top: 0;
+    }
+    #corpo div.folha1{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: fit-content;
+        margin-left: 5%;
+        margin-top: 5%;
+        padding: 30px;
+        box-shadow: none;
+        
+    
+    }
+    #corpo div.sectionOne{
+        display:block;
+    
+    }
+    #corpo div.logoImg{
+        display:inline-flex;
+        margin-right: 600px;
+       
+        
+    }
+    #corpo div.logoImg2{
+        display:inline-block;
+        margin-left: 0px;
+       
+        
+    }
+    #corpo h2.title{
+        text-align: center;
+        color: #001866;
+        font-family: muli, sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        font-size:30px;
+        letter-spacing: 0.07em;
+    }
+    
+    #corpo img.imgBackground{
+        width: auto;
+        height: 150px;
+    
+    }
+    #corpo div.divBackImg{
+        margin-left: 17%;
+    }
+    #corpo table tr td{
+        font-family: 'Roboto', sans-serif;
+        color:#55595C;
+        font-size:20px;
+        letter-spacing:0.06em;
+        padding-top:10px;
+    }
+    #corpo tbody tr td.resposta{
+        padding-left: 500px;
+        text-align:right;
+        color:#55595C;
+    }
+    
+    #corpo table{
+        padding-top: 5%;
+        margin-left: 5%;
+    }
+    
+    #corpo div.folha2{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: 900px;
+        margin-left: 5%;
+        margin-top: 50px;
+        padding: 30px;
+        box-shadow: none;
+        
+    }
+    #corpo div.folhaPeriferico{
+        background-color: #fff;
+        display: block;
+        width: 85%;
+        height: 1200px;
+        margin-left: 5%;
+        margin-top: 50px;
+        padding: 30px;
+        box-shadow: none;
+        
+    }
+    #corpo h3.t2{
+        text-align:center;
+        font-size:x-large;
+        color: #001866;
+        font-family: muli, sans-serif;
+        letter-spacing:0.09em;
+        padding-top:3%;
+    }
+    #corpo h5.text2{
+        text-align:left;
+        font-family: 'Mulish';
+        font-weight: 500;
+        color: 373A3C;
+        font-size:15px
+    
+    }
+    #graph{
+    width:850px;
+    height:700px;
+    margin-left:0;
+    
+    }
+    #corpo div.space{
+    width:auto;
+    height:100px;
+    }
+    #corpo img.imgfanuc{
+        width: auto;
+        height: 25px;
+
+    }
+    #corpo div.graphDiv{
+    
+        margin-left:17%;
+        margin-top: 5%;
+        }
+        #corpo div.graphDiv2{
+        
+            margin-top:10%;
+            margin-left: 5%;
+            }
+    .tabela{
+        width: 100%;
+        height: fit-content;
+        margin-left: 0;
+        
+    }
+    
+    
+}
+
 

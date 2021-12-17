@@ -29,6 +29,7 @@ constructor () {
   this.handleChange = this.handleChange.bind(this);
 }
 
+
   /* state = {selectedFile:null,
              file2:null
             } */
@@ -37,21 +38,13 @@ constructor () {
 
   // On file select (from the pop up)
   handleChange(event, indice) {
-    console.log("mudou")
+    
     // Update the state
     this.setState({[indice] : event.target.files[0]});
     console.log(this.state.selectedFile)
     
   };
-  /* onFileChange2 = event => {
-    console.log("mudou")
-    // Update the state
-    this.setState({selectedFile2 : event.target.files[0]});
-    console.log(this.state.file2)
-    
-    
-
-  };  */
+ 
 
   // On file upload (click the upload button)
   onFileUpload = () => {
@@ -98,29 +91,49 @@ constructor () {
 
         // Request made to the backend api
         // Send formData object
-        axios.post("http://localhost:5000/upload", formData, this.axiosConfig).then(function (response) {
+        axios.post("http://150.165.167.59:5000/upload", formData, this.axiosConfig).then(function (response) {
           console.log(response)
+          document.getElementById("loading").style.display = "none"
+          document.getElementById("finish").style.display = "block"
+
         }).catch(function (error) {
           console.log(error.toJSON());
           document.getElementById("div-btn-generate").style.display = "flex";
           document.getElementById("upload").style.display = "flex";
+          document.getElementById("loading").style.display = "none";
+          toast.error('Error, please try later.', {
+            position: "top-left",
+            autoClose: 9000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
 
         });
 
-        axios.post("http://localhost:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
-          document.getElementById("loading").style.display = "none"
-          document.getElementById("finish").style.display = "block"
+        axios.post("http://150.165.167.59:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
+
           console.log(response.data)
-          window.open('/relatorio')
-          
+         
         }).catch(function (error) {
           console.log(error.toJSON());
           document.getElementById("div-btn-generate").style.display = "flex";
-          document.getElementById("upload").style.display = "space";
-          document.getElementById("loading").style.display = "none"
+          document.getElementById("upload").style.display = "flex";
+          document.getElementById("loading").style.display = "none";
+          toast.error('Error, please try later.', {
+            position: "top-left",
+            autoClose: 9000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
 
         });
-
+        
     }
       if(this.state.selectedFile&&!this.state.file2){
         console.log("state true")
@@ -142,25 +155,34 @@ constructor () {
 
         // Request made to the backend api
         // Send formData object
-        axios.post("http://localhost:5000/upload", formData, this.axiosConfig ).then(function (response) {
+        axios.post("http://150.165.167.59:5000/upload", formData, this.axiosConfig ).then(function (response) {
           
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
-          console.log(response)
+          console.log(response) 
           
-          window.open('/relatorio')
+
         }).catch(function (error) {
           console.log(error.toJSON());
           document.getElementById("div-btn-generate").style.display = "flex";
           document.getElementById("upload").style.display = "flex";
           document.getElementById("loading").style.display = "none"
+          toast.error('Error, please try later.', {
+            position: "top-left",
+            autoClose: 9000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
           
-
+           
         });
         
 
       }
-      if(!this.state.selectedFile&&this.state.file2){
+      /* if(!this.state.selectedFile&&this.state.file2){
         console.log("state2 true")
         // Create an object of formDatas
        
@@ -182,23 +204,31 @@ constructor () {
         // Request made to the backend api
         // Send formData object
         
-        axios.post("http://localhost:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
+        axios.post("http://150.165.167.59:5000/upload-perifericos", formData2, this.axiosConfig).then(function (response) {
           document.getElementById("loading").style.display = "none"
           document.getElementById("finish").style.display = "block"
           console.log(response)
           window.open('/relatorio')
         }).catch(function (error) {
-          console.log(error.toJSON());
           document.getElementById("div-btn-generate").style.display = "flex";
           document.getElementById("upload").style.display = "flex";
           document.getElementById("loading").style.display = "none"
+          toast.error('Error, please try later.', {
+            position: "top-left",
+            autoClose: 9000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
           
           
 
         });
-
+ 
       }
-
+*/
   };
 
   
@@ -207,6 +237,7 @@ constructor () {
     document.getElementById("div-btn-generate").style.display = "flex";
     document.getElementById("finish").style.display = "none"
     document.getElementById("upload").style.display = "flex";
+    window.open('/relatorio')
   }
 
   // File content to be displayed after
@@ -220,18 +251,19 @@ constructor () {
         <Header />
         <div id="body">
         <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-/>
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              />
 {/* Same as */}
 <ToastContainer />
+
 
           <div className="localContainer">
             <div>
@@ -259,7 +291,7 @@ pauseOnHover
             </div>
            <div id="upload" className="upload">
            <div id="uploadSpace" className="uploadSpace">
-              <input id="fileUp" type="file" name="upload_file" onChange={(event)=>this.handleChange(event, "selectedFile")} />
+              <input id="fileUp" type="file" name="upload_file" accept=".csv" onChange={(event)=>this.handleChange(event, "selectedFile")} />
               <label htmlFor="fileUp">
                 <button className="uploadIcon">
                   <FileIconsTi.TiUpload color="white" size={70} />
@@ -270,7 +302,7 @@ pauseOnHover
             </div>
 
             <div id="uploadSpace" className="uploadSpace">
-              <input id="fileUp2" type="file" name="upload_file_periferico" onChange={(event)=>this.handleChange(event, "file2")} />
+              <input id="fileUp2" type="file" name="upload_file_periferico" accept=".csv, .xlsx" onChange={(event)=>this.handleChange(event, "file2")} />
               <label htmlFor="fileUp2">
                 <button className="uploadIcon">
                   <FileIconsTi.TiUpload color="white" size={70} />
@@ -282,7 +314,7 @@ pauseOnHover
             
 
             <div id="div-btn-generate">
-              <button id='button' className="buttonGenerate"  disabled={this.state[0]==null&&this.state[1]} onClick={this.onFileUpload}>Generate</button>
+              <button id='button' className="buttonGenerate"  disabled={this.state.selectedFile==null} onClick={this.onFileUpload}>Generate</button>
             </div>
 
             <div id="finish" className="finish" style={{ display: "none" }}>
